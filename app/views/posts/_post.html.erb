@@ -1,0 +1,12 @@
+<article>
+	<header><%= post.title %></header>
+	<div><%= post.content %></div>
+  
+	<nav>
+		<ul>
+			<li><%= link_to 'Show', post %></li>
+    	<li><%= link_to 'Edit', edit_post_path(post) %></li>
+    	<li><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></li>
+		</ul>
+	</nav>
+</article>
