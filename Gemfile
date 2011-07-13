@@ -10,6 +10,8 @@ gem 'uglifier'
 
 gem 'jquery-rails'
 
+gem 'omniauth', '>= 0.2.6'
+
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false

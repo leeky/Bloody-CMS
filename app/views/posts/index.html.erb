@@ -5,5 +5,5 @@
 
 	<%= render :partial => @posts %>
 
-	<%= link_to 'New Post', new_post_path %>
+	<%= link_to 'New Post', new_post_path if admin? %>
 </section>
