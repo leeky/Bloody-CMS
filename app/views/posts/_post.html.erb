@@ -1,12 +1,6 @@
 <article>
-	<header><%= post.title %></header>
+	<header><%= link_to post.title, post %></header>
 	<div><%= post.content %></div>
   
-	<nav>
-		<ul>
-			<li><%= link_to 'Show', post %></li>
-    	<li><%= link_to 'Edit', edit_post_path(post) %></li>
-    	<li><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></li>
-		</ul>
-	</nav>
+	<%= render :partial => "posts/post_nav" if show_nav %>
 </article>

@@ -3,7 +3,7 @@
 <section>
 	<header>Blog posts</header>
 
-	<%= render :partial => @posts %>
+	<%= render :partial => @posts, :locals => {:show_nav => false} %>
 
 	<%= link_to 'New Post', new_post_path if admin? %>
 </section>
