@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   
   def require_admin
     require_login unless logged_in?
-    redirect_to root_url, :notice => "Sorry but you need to be an admin to get access to this feature" unless admin? || !logged_in?
+    redirect_to root_url, :alert => "You need to be an admin to get access to this feature" unless admin?
   end
   
   def current_user

@@ -10,7 +10,13 @@ gem 'uglifier'
 
 gem 'jquery-rails'
 
+# authentication
 gem 'omniauth', '>= 0.2.6'
+
+#markdown and syntax highlighting
+gem 'redcarpet'
+gem 'albino'
+gem 'nokogiri'
 
 group :test do
   # Pretty printed test output

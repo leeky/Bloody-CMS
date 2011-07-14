@@ -5,4 +5,5 @@
  *= require_self
 */
 @import "reset.css.scss";
+@import "pygments.css";
 @import "basic_theme.css.scss";

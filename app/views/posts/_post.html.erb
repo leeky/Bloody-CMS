@@ -1,6 +1,8 @@
+<% post ||= @post %>
+
 <article>
 	<header><%= link_to post.title, post %></header>
-	<div><%= post.content %></div>
+	<div><%= markdown(post.content) %></div>
   
 	<%= render :partial => "posts/post_nav" if show_nav %>
 </article>

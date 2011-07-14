@@ -1,5 +1,5 @@
-<% if flash[:warning] or flash[:notice] %>
-  <div id="notice" <% if flash[:warning] %>class="warning"<% end %>>
-    <%= flash[:warning] || flash[:notice] %>
+<% if flash[:alert] || flash[:notice] %>
+  <div id="notice" <% if flash[:alert] %>class="warning"<% end %>>
+    <span><%= flash[:alert] || flash[:notice] %></span>
   </div>
 <% end %>

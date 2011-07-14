@@ -1,14 +1,89 @@
+//
+// Do not change this file. Instead create a new file that overwrites this one
+//
+
+body {
+	font-family: Georgia,"Times New Roman", Times, serif;
+	line-height: 1.47em;
+}
+
+a {
+	color: #a00;
+	
+	&:hover {
+		color: #700;
+		opacity: 0.8;
+	}
+}
+
+div#notice {
+	background-color: #fafafa;
+	border-bottom: 1px solid #eee;
+	padding: 10px 0px 10px 0px;
+	font-size: 1.47em;
+	line-height: 1.47em;
+	overflow: auto;
+	
+	&.warning {
+		background-color: #fef6be;
+	}
+	
+	span {
+		width: 600px;
+		display: block;
+		margin: 0 auto;
+	}
+}
+
+#controls {
+	background-color: #f2f2f2;
+	border-bottom: 1px solid #ddd;
+	padding: 5px 0px 5px 0px;
+	overflow: auto;
+	
+	ul {
+		width: 600px;
+		margin: 0 auto;
+		display: block;
+		
+		li {
+			float: right;
+		}
+	}
+}
+
 body.posts {
 	section {
-		width: 500px;
+		width: 600px;
 		padding: 10px;
-		background-color: #eee;
 		margin: 0 auto;
 		
 		header {
 			font-weight: bold;
 			margin-bottom: 20px;
 			font-size: 40px;
+			line-height: 1.47em;
+		}
+		
+		form#new_post {
+			
+			input[type=text] {
+				background-color: #fafafa;
+				padding: 10px 10px;
+				width: 580px;
+				font-size: 1.5em;
+				border: 1px solid #aaa;
+			}
+			
+			textarea {
+				background-color: #fafafa;
+				padding: 10px 10px;
+				width: 580px;
+				height: 300px;
+				font-family: Courier, sans-serif;
+				font-size: 1.0em;
+				border: 1px solid #aaa;
+			}
 		}
 		
 		article {
@@ -22,6 +97,14 @@ body.posts {
 			
 			div {
 				margin-bottom: 20px;
+				
+				p {margin-bottom: 20px;}
+				
+				.highlight {
+					background-color: #f5f5f5;
+					padding: 10px;
+					border: 1px solid #d2d2d2;
+				}
 			}
 			
 			nav {
