@@ -1,0 +1,11 @@
+title: "Bloody CMS"
+
+blog:
+  title: "News"
+  enabled: true
+  in_nav: true
+  sidebar_title: "news"
+
+pages:
+  enabled: true
+  in_nav: true

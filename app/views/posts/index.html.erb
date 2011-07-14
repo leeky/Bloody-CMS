@@ -1,7 +1,7 @@
 <%# body_classes << 'other_class_name' %>
 
 <section>
-	<header>Blog posts</header>
+	<header><%= CONFIG['blog']['title'] %></header>
 
 	<%= render :partial => @posts, :locals => {:show_nav => false} %>
 

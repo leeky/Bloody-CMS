@@ -65,9 +65,10 @@ body.posts {
 			line-height: 1.47em;
 		}
 		
-		form#new_post {
+		form#new_post, form.edit_post {
 			
 			input[type=text] {
+				color: #333;
 				background-color: #fafafa;
 				padding: 10px 10px;
 				width: 580px;
@@ -76,6 +77,7 @@ body.posts {
 			}
 			
 			textarea {
+				color: #333;
 				background-color: #fafafa;
 				padding: 10px 10px;
 				width: 580px;
