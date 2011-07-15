@@ -7,9 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_classes.join(' ') %>">
-
+	
 <%= render :partial => 'controls_header' %>
 <%= render :partial => 'flash_messages' %>
+<%= render :partial => 'sidebar' %>
 
 <%= yield %>
 
