@@ -133,6 +133,19 @@ body.posts, body.pages {
 			}
 		}
 		
+		#error_explanation {
+			margin-bottom: 10px;
+			
+			h2 {
+				font-weight: bold;
+			}
+			
+			ul {
+				color: #a00;
+				list-style: disc inside;
+			}
+		}
+		
 		form#new_post, form.edit_post, form#new_page, form.edit_page {
 			
 			input[type=text] {
@@ -153,6 +166,10 @@ body.posts, body.pages {
 				font-family: Courier, sans-serif;
 				font-size: 1.0em;
 				border: 1px solid #aaa;
+			}
+			
+			.field_with_errors input, .field_with_errors textarea {
+				border: 1px solid #a00;
 			}
 		}
 		

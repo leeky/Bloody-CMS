@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   before_create :slugify
   
   attr_accessible :title, :content
+  validates_presence_of :title, :content
   
   # scopes
   scope :published, where("published_at IS NOT NULL")
