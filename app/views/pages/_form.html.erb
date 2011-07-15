@@ -27,8 +27,9 @@
   </div>
 	<hr/>
   <div class="controls">
-	  <%= link_to '&larr;	Back'.html_safe, root_page_path(@page), :class => "button medium white left" %>
-	  <%= link_to 'Delete', @page, confirm: 'Are you sure?', method: :delete, :class => 'button gray medium left' %>
+	  <%= link_to '&larr;	Back'.html_safe, root_page_path(@page), :class => "button medium white left" unless @page.new_record? %>
+	  <%= link_to '&larr;	Back'.html_safe, root_url, :class => "button medium white left" if @page.new_record? %>
+	  <%= link_to 'Delete', @page, confirm: 'Are you sure?', method: :delete, :class => 'button gray medium left' unless @page.new_record? %>
 
 		<% if @page.new_record? %>
 			<%= f.submit(:class => 'button medium green', :value => 'Save page') %>
