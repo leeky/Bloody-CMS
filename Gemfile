@@ -27,6 +27,6 @@ group :test do
 end
 
 # Uncomment this when deploying to heroku
-# group :production do
-#   gem 'therubyracer-heroku', '0.8.1.pre3'
-# end
+group :production do
+  gem 'therubyracer-heroku', '0.8.1.pre3'
+end
