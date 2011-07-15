@@ -26,6 +26,7 @@ group :test do
   gem 'turn', :require => false
 end
 
-group :production do
-  gem 'therubyracer-heroku', '0.8.1.pre3'
-end
+# Uncomment this when deploying to heroku
+# group :production do
+#   gem 'therubyracer-heroku', '0.8.1.pre3'
+# end
