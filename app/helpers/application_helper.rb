@@ -19,4 +19,8 @@ module ApplicationHelper
   def show_sidebar_module?(name)
     CONFIG[name] && CONFIG[name]['in_nav'] && CONFIG[name]['enabled']
   end
+  
+  def active_module?(name)
+    CONFIG[name] && CONFIG[name]['enabled']
+  end
 end

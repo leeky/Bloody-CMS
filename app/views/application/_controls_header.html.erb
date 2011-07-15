@@ -1,6 +1,7 @@
 <nav id='controls'>
 	<ul>
 		<li>
+			<%= link_to 'New post', new_post_path, :class => 'button gray medium' if active_module?('blog') && admin?  %>
 			<%= link_to "Logout &rarr; ".html_safe, "/logout", :class => "button medium white" if logged_in? %>
 			<%= link_to image_tag("twitter_connect.gif"), "/login" if !logged_in? %>	
 		</li>
