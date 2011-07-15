@@ -21,5 +21,12 @@ namespace :bloody do
     end
   end
   
+  desc "Removes a user from the admin list"
+  task :admins => :environment do |t, args|
+    User.find_each do |user|
+      puts "#{user.name} #{"(admin)" if user.is_admin}"
+    end
+  end
+  
 
 end
