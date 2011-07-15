@@ -1,0 +1,7 @@
+<div id='blocks'>
+	<% CONFIG['sidebar']['blocks'].each do |name, code| %>
+		<div class='block'>
+			<%= code.html_safe %>
+		</div>
+	<% end %>
+</div>

@@ -96,6 +96,16 @@ header img {
 			}
 		}
 	}
+	
+	#blocks {
+		margin-top: 20px;
+		
+		.block {
+			margin-bottom: 20px;
+			float: right;
+		}
+	}
+
 }
 
 @media all and (max-width: 799px) {
@@ -121,6 +131,10 @@ header img {
 				color: #000;
 			}
 		}
+	}
+	
+	#blocks {
+		display: none;
 	}
 }
 

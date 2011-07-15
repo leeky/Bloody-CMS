@@ -6,4 +6,7 @@
 	<%= link_to CONFIG['blog']['title'], posts_path, :class => class_name  if show_sidebar_module?('blog') %>
 
 	<%= render :partial => 'sidebar_pages' if show_sidebar_module?('pages') %>
+
+	<%= render :partial => 'sidebar_blocks' if show_sidebar_module?('pages') %>
+
 </aside>

@@ -1,6 +1,12 @@
 title: "Bloody CMS"
 header: "header.png"
 
+
+sidebar:
+  blocks:
+    example_block1: ''
+
+
 home:
   enabled: true
   in_nav: true
