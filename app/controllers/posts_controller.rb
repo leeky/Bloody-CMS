@@ -22,9 +22,9 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     if admin?
-      @post = Post.descending_date.find_by_slug(params[:id]) 
+      @post = Post.find_by_slug(params[:id]) 
     else
-      @post = Post.published.descending_date.find_by_slug(params[:id]) 
+      @post = Post.published.find_by_slug(params[:id]) 
     end
    
     respond_to do |format|
@@ -56,7 +56,15 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to edit_post_path(@post), notice: 'Post was successfully created.' }
+        
+        @post.update_attribute('published_at', Time.now) if params[:commit] == 'Publish'
+        
+        if params[:commit] == 'Publish'
+          format.html { redirect_to @post, notice: 'Post was successfully published.' }
+        else
+          format.html { redirect_to edit_post_path(@post), notice: 'Post was successfully created.' }
+        end
+        
         format.json { render json: @post, status: :created, location: @post }
       else
         format.html { render action: "new" }

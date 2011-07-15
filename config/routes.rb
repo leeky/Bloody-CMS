@@ -1,5 +1,6 @@
 Bloodycms::Application.routes.draw do
   resources :posts
+  resources :pages
   resources :authentications
   
   #authentication

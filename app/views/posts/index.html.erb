@@ -1,8 +1,6 @@
 <%# body_classes << 'other_class_name' %>
 
 <section>
-	<header><%= CONFIG['blog']['title'] %></header>
-
 	<%= render :partial => @posts, :locals => {:show_nav => false, :highlight_unpublished => true} %>
 	
 	<%= will_paginate @posts %>

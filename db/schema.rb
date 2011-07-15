@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110715002004) do
+ActiveRecord::Schema.define(:version => 20110715115448) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -18,6 +18,18 @@ ActiveRecord::Schema.define(:version => 20110715002004) do
     t.string   "uid"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "pages", :force => true do |t|
+    t.text     "title"
+    t.text     "content"
+    t.text     "slug"
+    t.datetime "published_at"
+    t.integer  "order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "sidebar_title"
+    t.boolean  "show_in_sidebar"
   end
 
   create_table "posts", :force => true do |t|

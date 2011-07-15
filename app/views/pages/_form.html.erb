@@ -1,0 +1,44 @@
+<%= form_for(@page) do |f| %>
+  <% if @page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
+
+      <ul>
+      <% @page.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :title, :placeholder => "Title" %>
+  </div>
+	<hr/>
+  <div class="field">
+    <%= f.text_area :content, :placeholder => 'Content' %>
+  </div>
+	<div class="field">
+    <%= f.text_field :sidebar_title, :placeholder => 'Custom sidebar title' %>
+  </div>
+	<hr/>
+	<div class="field">
+    <%= f.check_box :show_in_sidebar %> <%= f.label :show_in_sidebar, "Show this page in the sidebar" %>
+  </div>
+	<hr/>
+  <div class="controls">
+	  <%= link_to '&larr;	Back'.html_safe, @page, :class => "button medium white left" %>
+	  <%= link_to 'Delete', @page, confirm: 'Are you sure?', method: :delete, :class => 'button gray medium left' %>
+
+		<% if @page.new_record? %>
+			<%= f.submit(:class => 'button medium green', :value => 'Save page') %>
+			<%= f.submit(:class => 'button medium orange', :value => 'Publish') %>
+		<% elsif !@page.published? %>
+			<%= f.submit(:class => 'button medium green', :value => 'Update page') %>
+			<%= f.submit(:class => 'button medium orange', :value => 'Publish') %>
+		<% else %>
+			<%= f.submit(:class => 'button medium orange', :value => 'Unpublish') %>
+			<%= f.submit(:class => 'button medium green', :value => 'Update page') %>
+		<% end %>
+  </div>
+<% end %>

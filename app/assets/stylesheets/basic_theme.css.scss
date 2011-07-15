@@ -73,19 +73,22 @@ aside {
 	margin-left: -530px;
 	text-align: right;
 	float: left;
-	padding: 18px 0px;
+	margin-top: 25px;
+	border-top: 1px solid #ddd;
+	
 	
 	a {
 		font-weight: bold;
 		text-decoration: none;
 		display: block;
-		border-bottom: 1px solid #f2f2f2;
-		font-size: 2.5em;
+		border-bottom: 1px solid #ddd;
+		padding: 10px 0px;
+		font-size: 2.0em;
 		line-height: 1em;
 	}
 }
 
-body.posts {
+body.posts, body.pages {
 	section {
 		width: 600px;
 		padding: 10px;
@@ -130,7 +133,7 @@ body.posts {
 			}
 		}
 		
-		form#new_post, form.edit_post {
+		form#new_post, form.edit_post, form#new_page, form.edit_page {
 			
 			input[type=text] {
 				color: #222;

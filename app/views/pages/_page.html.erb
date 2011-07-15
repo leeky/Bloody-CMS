@@ -1,0 +1,21 @@
+<% page ||= @page %>
+
+<article class="<%= "unpublished" unless page.published? || !highlight_unpublished %>">
+	<% unless page.published? || !highlight_unpublished %>
+		<span class='warning'>
+				Unpublished 
+				<%= link_to 'Edit', edit_page_path(page), :class => 'button white medium' %>
+		</span>
+	<% end %>
+	
+	<header><%= show_nav ? page.title : link_to(page.title, page) %></header>
+	
+	<time datetime="<%= page.published_or_created_at.strftime("%Y-%m-%dT%T%z") %>" pubdate>
+	  <%= page.published_or_created_at.strftime("%A %e %B %Y - %R") %>
+	</time>
+	
+	<%= render :partial => "pages/page_controls" if show_nav && admin? %>
+	
+	<div><%= markdown(page.content) %></div>
+  
+</article>

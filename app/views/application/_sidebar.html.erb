@@ -1,3 +1,6 @@
 <aside>
+	<%= link_to CONFIG['home']['title'], root_url if show_sidebar_module?('home') %>
 	<%= link_to CONFIG['blog']['title'], posts_path if show_sidebar_module?('blog') %>
+
+	<%= render :partial => 'sidebar_pages' if show_sidebar_module?('pages') %>
 </aside>

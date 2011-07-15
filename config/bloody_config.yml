@@ -1,11 +1,15 @@
 title: "Bloody CMS"
 header: "header.png"
 
-blog:
-  title: "News"
+home:
   enabled: true
   in_nav: true
-  sidebar_title: "news"
+  title: "home"
+
+blog:
+  enabled: true
+  in_nav: true
+  title: "news"
 
 pages:
   enabled: true
