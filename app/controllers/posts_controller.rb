@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @posts }
+      format.json { render json: @posts, :only => [:title, :content] }
     end
   end
 
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
    
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @post }
+      format.json { render json: @post, :only => [:title, :content] }
     end
   end
 
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @post }
+      format.json { render json: @post, :only => [:title, :content] }
     end
   end
 
@@ -65,7 +65,7 @@ class PostsController < ApplicationController
           format.html { redirect_to edit_post_path(@post), notice: 'Post was successfully created.' }
         end
         
-        format.json { render json: @post, status: :created, location: @post }
+        format.json { render json: @post, status: :created, location: @post, :only => [:title, :content] }
       else
         format.html { render action: "new" }
         format.json { render json: @post.errors, status: :unprocessable_entity }

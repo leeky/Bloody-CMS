@@ -14,7 +14,7 @@ class PagesController < ApplicationController
        
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @page }
+      format.json { render json: @page, :only => [:title, :content] }
     end
   end
 
@@ -25,7 +25,7 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @page }
+      format.json { render json: @page, :only => [:title, :content] }
     end
   end
 
@@ -48,7 +48,7 @@ class PagesController < ApplicationController
         else
           format.html { redirect_to edit_page_path(@post), notice: 'Page was successfully created.' }
         end
-        format.json { render json: @page, status: :created, location: @page }
+        format.json { render json: @page, status: :created, location: @page, :only => [:title, :content] }
       else
         format.html { render action: "new" }
         format.json { render json: @page.errors, status: :unprocessable_entity }
