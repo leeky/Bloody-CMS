@@ -1,0 +1,7 @@
+<% @posts = Post.published.descending_date.limit(CONFIG['blog']['show_recent'].to_i) %>
+
+
+<% if @posts.count > 0 %>
+	<header><%= CONFIG['blog']['title'] %></header>
+	<%= render :partial => @posts, :locals => {:show_nav => false, :highlight_unpublished => false} %>
+<% end %>
