@@ -21,7 +21,7 @@ blog:
 pages:
   enabled: true         #toggles wether this feature is enabled
   in_nav: true          #toggles wether this feature is shown in the sidebar
-  root_page: "home"    #the root page to show instead of the blog
+  # root_page: "home"    #the root page to show instead of the blog
   
 twitter:
   consumer_key: 'oTtUoZEdLvrYV0s5xs6Pw'
