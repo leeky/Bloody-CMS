@@ -10,10 +10,6 @@
 	
 	<header><%= show_nav ? page.title : link_to(page.title, page) %></header>
 	
-	<time datetime="<%= page.published_or_created_at.strftime("%Y-%m-%dT%T%z") %>" pubdate>
-	  <%= page.published_or_created_at.strftime("%A %e %B %Y - %R") %>
-	</time>
-	
 	<%= render :partial => "pages/page_controls" if show_nav && admin? %>
 	
 	<div><%= markdown(page.content) %></div>

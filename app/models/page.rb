@@ -1,6 +1,6 @@
 class Page < ActiveRecord::Base
   
-  before_create :slugify
+  before_save :slugify
   
   attr_accessible :title, :content, :sidebar_title, :show_in_sidebar
   validates_presence_of :title, :content

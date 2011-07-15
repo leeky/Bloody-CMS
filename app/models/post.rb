@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   
-  before_create :slugify
+  before_save :slugify
   
   attr_accessible :title, :content
   validates_presence_of :title, :content

@@ -13,7 +13,10 @@ Bloodycms::Application.routes.draw do
   #pages to root domain
   match "/:id" => "pages#show", :as => "root_page", :method => :get
 
-  root :to => 'posts#index'
+  #the root url can be configured
+  root :to => 'posts#index' unless CONFIG['pages']['root_page'] && CONFIG['pages']['enabled']
+  root :to => 'pages#show', :id => CONFIG['pages']['root_page'] if CONFIG['pages']['root_page'] && CONFIG['pages']['enabled']
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
