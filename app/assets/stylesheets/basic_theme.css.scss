@@ -35,6 +35,17 @@ div#notice {
 	}
 }
 
+header {
+	background-color: #fafafa;
+	border-bottom: 1px solid #ddd;
+	padding: 10px;
+}
+
+header img {
+	display: block;
+	margin: 0px auto;
+}
+
 #controls {
 	background-color: #f2f2f2;
 	border-bottom: 1px solid #ddd;
@@ -82,10 +93,13 @@ body.posts {
 		margin: 0 auto;
 		
 		header {
+			background-color: inherit;
 			font-weight: bold;
 			margin-bottom: 20px;
 			font-size: 40px;
 			line-height: 1.47em;
+			border-bottom: 0px;
+			padding: 0px;
 		}
 		
 		.controls {

@@ -6,9 +6,9 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if admin?
-      @posts = Post.descending_date.paginate :page => params[:page], :per_page => 2
+      @posts = Post.descending_date.paginate :page => params[:page], :per_page => 5
     else
-      @posts = Post.published.descending_date.paginate :page => params[:page], :per_page => 2
+      @posts = Post.published.descending_date.paginate :page => params[:page], :per_page => 5
     end
     
 
