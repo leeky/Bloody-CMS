@@ -19,8 +19,8 @@
     <%= f.text_area :content, :placeholder => 'Content' %>
   </div>
   <div class="controls">
-		<%= link_to 'Show', @post, :class => 'button medium gray' unless @post.new_record? %> 
-    <%= link_to 'Back', posts_path, :class => "button medium white" %>
+	  <%= link_to '&larr;	Back'.html_safe, @post, :class => "button medium white left" %>
+	  <%= link_to 'Delete', @post, confirm: 'Are you sure?', method: :delete, :class => 'button gray medium left' %>
 
 		<% if @post.new_record? %>
 			<%= f.submit(:class => 'button medium green', :value => 'Save post') %>
@@ -30,6 +30,8 @@
 		
 		<% if !@post.published? %>
 			<%= f.submit(:class => 'button medium orange', :value => 'Publish') %>
+		<% else %>
+			<%= f.submit(:class => 'button medium orange', :value => 'Unpublish') %>
 		<% end %>
   </div>
 <% end %>

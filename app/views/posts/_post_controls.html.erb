@@ -1,7 +1,6 @@
 <% post ||= @post %>
 
 <div class='controls'>	
+	<%= link_to '&larr;	Back'.html_safe, posts_path, :class => 'button white medium left' %>
 	<%= link_to 'Edit', edit_post_path(post), :class => 'button orange medium' %>
-  <%= link_to 'Delete', post, confirm: 'Are you sure?', method: :delete, :class => 'button gray medium' %>
-	<%= link_to 'Back', posts_path, :class => 'button white medium' %>
 </div>

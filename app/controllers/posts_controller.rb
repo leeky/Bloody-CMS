@@ -6,9 +6,9 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if admin?
-      @posts = Post.all
+      @posts = Post.descending_date.paginate :page => params[:page], :per_page => 2
     else
-      @posts = Post.published
+      @posts = Post.published.descending_date.paginate :page => params[:page], :per_page => 2
     end
     
 
@@ -22,9 +22,9 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     if admin?
-      @post = Post.find_by_slug(params[:id]) 
+      @post = Post.descending_date.find_by_slug(params[:id]) 
     else
-      @post = Post.published.find_by_slug(params[:id]) 
+      @post = Post.published.descending_date.find_by_slug(params[:id]) 
     end
    
     respond_to do |format|
@@ -56,7 +56,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to edit_post_path(@post), notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else
         format.html { render action: "new" }
@@ -73,6 +73,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update_attributes(params[:post])
         @post.update_attribute('published_at', Time.now) if params[:commit] == 'Publish'
+        @post.update_attribute('published_at', nil) if params[:commit] == 'Unpublish'
         
         if params[:commit] == 'Publish'
           format.html { redirect_to @post, notice: 'Post was successfully published.' }

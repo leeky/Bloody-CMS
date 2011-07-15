@@ -73,9 +73,29 @@ body.posts {
 			background-color: #fafafa;
 			border-bottom: 1px solid #ddd;
 			border-top: 1px solid #ddd;
-			padding: 10px;
+			padding: 5px;
 			margin-bottom: 20px;
 			text-align: right;
+			
+			.button.left {
+				float: left;
+			}
+		}
+		
+		.pagination {
+			background-color: #fafafa;
+			border-bottom: 1px solid #ddd;
+			border-top: 1px solid #ddd;
+			padding: 5px;
+			text-align: center;
+			
+			.prev_page {
+				float: left;
+			}
+			
+			.next_page {
+				float: right;
+			}
 		}
 		
 		form#new_post, form.edit_post {
@@ -148,24 +168,6 @@ body.posts {
 				}
 			}
 			
-			nav {
-				overflow: hidden;
-				
-				li {
-					float: left;
-					border-right: 1px solid #aaa;
-					padding-left: 5px;
-					padding-right: 5px;
-					
-					&:first-child {
-						padding-left: 0px;
-					}
-					
-					&:last-child {
-						border-right: 0px;
-					}
-				}
-			}
 		}
 	}
 }

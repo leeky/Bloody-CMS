@@ -8,10 +8,10 @@
 		</span>
 	<% end %>
 	
-	<header><%= link_to post.title, post %></header>
+	<header><%= show_nav ? post.title : link_to(post.title, post) %></header>
 	
-	<time datetime="<%= post.created_at.strftime("%Y-%m-%dT%T%z") %>" pubdate>
-	  <%= post.created_at.strftime("%A %e %B %Y - %R") %>
+	<time datetime="<%= post.published_or_created_at.strftime("%Y-%m-%dT%T%z") %>" pubdate>
+	  <%= post.published_or_created_at.strftime("%A %e %B %Y - %R") %>
 	</time>
 	
 	<%= render :partial => "posts/post_controls" if show_nav && admin? %>

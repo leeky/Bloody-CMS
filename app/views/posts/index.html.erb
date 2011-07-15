@@ -3,9 +3,12 @@
 <section>
 	<header><%= CONFIG['blog']['title'] %></header>
 
-	<%= render :partial => 'posts/controls' if admin? %>
+	<%= render :partial => 'posts/controls' if admin? %>	
 
 
 	<%= render :partial => @posts, :locals => {:show_nav => false, :highlight_unpublished => true} %>
+	
+	<%= will_paginate @posts %>
+	
 
 </section>
