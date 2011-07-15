@@ -85,6 +85,10 @@ aside {
 		padding: 10px 0px;
 		font-size: 2.0em;
 		line-height: 1em;
+		
+		&.active {
+			background-color: #fafafa;
+		}
 	}
 }
 
@@ -164,7 +168,7 @@ body.posts, body.pages {
 				width: 590px;
 				height: 300px;
 				font-family: Courier, sans-serif;
-				font-size: 1.0em;
+				font-size: 0.8em;
 				border: 1px solid #aaa;
 			}
 			
