@@ -7,3 +7,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function(){
+	if ($('#notice') && !$('#notice').hasClass('warning')) {
+		setTimeout(function(){ 
+			$('#notice').slideUp();
+		}, 2000);
+	}
+});

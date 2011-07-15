@@ -11,7 +11,7 @@ class PagesController < ApplicationController
     else
       @page = Page.published.find_by_slug(params[:id]) 
     end
-   
+       
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @page }
