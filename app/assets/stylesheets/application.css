@@ -6,4 +6,5 @@
 */
 @import "reset.css.scss";
 @import "pygments.css";
+@import "buttons.css";
 @import "basic_theme.css.scss";

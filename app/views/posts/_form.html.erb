@@ -18,7 +18,18 @@
   <div class="field">
     <%= f.text_area :content, :placeholder => 'Content' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="controls">
+		<%= link_to 'Show', @post, :class => 'button medium gray' unless @post.new_record? %> 
+    <%= link_to 'Back', posts_path, :class => "button medium white" %>
+
+		<% if @post.new_record? %>
+			<%= f.submit(:class => 'button medium green', :value => 'Save post') %>
+		<% else %>
+			<%= f.submit(:class => 'button medium green', :value => 'Update post') %>
+		<% end %>
+		
+		<% if !@post.published? %>
+			<%= f.submit(:class => 'button medium orange', :value => 'Publish') %>
+		<% end %>
   </div>
 <% end %>

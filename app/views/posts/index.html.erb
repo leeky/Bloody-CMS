@@ -3,7 +3,9 @@
 <section>
 	<header><%= CONFIG['blog']['title'] %></header>
 
-	<%= render :partial => @posts, :locals => {:show_nav => false} %>
+	<%= render :partial => 'posts/controls' if admin? %>
 
-	<%= link_to 'New Post', new_post_path if admin? %>
+
+	<%= render :partial => @posts, :locals => {:show_nav => false, :highlight_unpublished => true} %>
+
 </section>

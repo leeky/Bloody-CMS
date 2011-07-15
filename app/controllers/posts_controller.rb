@@ -5,7 +5,12 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    if admin?
+      @posts = Post.all
+    else
+      @posts = Post.published
+    end
+    
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,8 +21,12 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post = Post.find_by_slug(params[:id])
-
+    if admin?
+      @post = Post.find_by_slug(params[:id]) 
+    else
+      @post = Post.published.find_by_slug(params[:id]) 
+    end
+   
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @post }
@@ -63,7 +72,14 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        @post.update_attribute('published_at', Time.now) if params[:commit] == 'Publish'
+        
+        if params[:commit] == 'Publish'
+          format.html { redirect_to @post, notice: 'Post was successfully published.' }
+        else
+          format.html { redirect_to edit_post_path(@post), notice: 'Post was successfully updated.' }
+        end
+        
         format.json { head :ok }
       else
         format.html { render action: "edit" }

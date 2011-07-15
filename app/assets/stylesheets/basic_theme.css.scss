@@ -41,6 +41,10 @@ div#notice {
 	padding: 5px 0px 5px 0px;
 	overflow: auto;
 	
+	img {
+		margin-top: 5px;
+	}
+	
 	ul {
 		width: 600px;
 		margin: 0 auto;
@@ -65,22 +69,31 @@ body.posts {
 			line-height: 1.47em;
 		}
 		
+		.controls {
+			background-color: #fafafa;
+			border-bottom: 1px solid #ddd;
+			border-top: 1px solid #ddd;
+			padding: 10px;
+			margin-bottom: 20px;
+			text-align: right;
+		}
+		
 		form#new_post, form.edit_post {
 			
 			input[type=text] {
-				color: #333;
+				color: #222;
 				background-color: #fafafa;
-				padding: 10px 10px;
-				width: 580px;
-				font-size: 1.5em;
+				padding: 5px 5px;
+				width: 590px;
+				font-size: 1.2em;
 				border: 1px solid #aaa;
 			}
 			
 			textarea {
-				color: #333;
+				color: #222;
 				background-color: #fafafa;
-				padding: 10px 10px;
-				width: 580px;
+				padding: 5px 5px;
+				width: 590px;
 				height: 300px;
 				font-family: Courier, sans-serif;
 				font-size: 1.0em;
@@ -93,8 +106,34 @@ body.posts {
 			margin: 0px 0px 20px 0px;
 			border-bottom: 1px solid #aaa;
 			
+			&.unpublished {
+				background-color: #f2f2f2;
+				
+				div, header, time {
+					padding: 0px 5px;
+				}
+			}
+			
+			.warning {
+				background-color: #333;
+				color: #fff;
+				display: block;
+				padding: 5px;
+				
+				.button {
+					float: right;
+				}
+			}
+			
 			header {
 				font-size: 30px;
+				margin-bottom: 0px;
+			}
+			
+			time {
+				margin-bottom: 20px;
+				font-size: 0.8em;
+				display: block;
 			}
 			
 			div {
