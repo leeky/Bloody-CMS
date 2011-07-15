@@ -8,7 +8,7 @@
 		</span>
 	<% end %>
 	
-	<header><%= show_nav ? page.title : link_to(page.title, page) %></header>
+	<header><%= (show_nav ? page.title : link_to(page.title, page)) if !root? %></header>
 	
 	<%= render :partial => "pages/page_controls" if show_nav && admin? %>
 	
