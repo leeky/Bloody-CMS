@@ -1,6 +1,7 @@
 <nav id='controls'>
 	<ul>
 		<li>
+			<%= "Logged in as #{current_user.name}" if logged_in?  %>&nbsp;&nbsp;
 			<%= link_to 'New page', new_page_path, :class => 'button gray medium' if active_module?('pages') && admin?  %>
 			<%= link_to 'New post', new_post_path, :class => 'button gray medium' if active_module?('blog') && admin?  %>
 			<%= link_to "Logout &rarr; ".html_safe, "/logout", :class => "button medium white" if logged_in? %>

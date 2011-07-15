@@ -6,10 +6,13 @@ class User < ActiveRecord::Base
 
     if authentication.user.nil?
       user = User.new
+      user.name = auth['user_info']['nickname']
       user.save
       authentication.user = user
       authentication.save
     end
+    
+    
     
     return authentication.user
   end
