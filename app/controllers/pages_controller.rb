@@ -46,7 +46,7 @@ class PagesController < ApplicationController
         if params[:commit] == 'Publish'
           format.html { redirect_to root_page_path(@page), notice: 'Page was successfully published.' }
         else
-          format.html { redirect_to edit_page_path(@post), notice: 'Page was successfully created.' }
+          format.html { redirect_to edit_page_path(@page), notice: 'Page was successfully created.' }
         end
         format.json { render json: @page, status: :created, location: @page, :only => [:title, :content] }
       else
