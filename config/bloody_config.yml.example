@@ -1,16 +1,14 @@
-title: "Bloody CMS"
-header: "header.png"
-
+title: "Bloody CMS"			# The name used in titles 
+header: "header.png"		# The image to show in the header
 
 sidebar:
   blocks:
-    example_block1: ''
-
+    example_block1: ''	# These blocks will be rendered int he sidebar if the page is wide enough (> 800px)
 
 home:
-  enabled: true
-  in_nav: true
-  title: "home"
+  enabled: true         # wether to show the sidebar home module
+  in_nav: true          # wether to actually show it in the sidebar
+  sidebar_title: "home" # the title for in the sidebar
 
 blog:
   enabled: true         #toggles wether this feature is enabled
@@ -21,8 +19,8 @@ blog:
 pages:
   enabled: true         #toggles wether this feature is enabled
   in_nav: true          #toggles wether this feature is shown in the sidebar
-  # root_page: "home"    #the root page to show instead of the blog
+  # root_page: "home"   #the root page to show instead of the blog
   
 twitter:
-  consumer_key: ''
-  onsumer_secret: ''
+  consumer_key: ''			# Your twitter authentication key (used for login)
+  onsumer_secret: ''		# Your twitter authentication secret  

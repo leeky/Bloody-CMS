@@ -1,5 +1,9 @@
+<% content_for :title do %>
+	<%= "#{@page.title} | " unless root? %>
+<% end %>
+
 <section>
 	<%= render :partial => @page, :locals => {:show_nav => true, :highlight_unpublished => false} %>
 
-	<%= render :partial => 'posts/recent' if CONFIG['blog']['enabled'] && CONFIG['blog']['show_recent'] %>
+	<%= render :partial => 'posts/recent' if CONFIG['blog']['enabled'] && CONFIG['blog']['show_recent'] && root?  %>
 </section>

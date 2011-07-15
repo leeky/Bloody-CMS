@@ -23,4 +23,8 @@ module ApplicationHelper
   def active_module?(name)
     CONFIG[name] && CONFIG[name]['enabled']
   end
+  
+  def root?
+    request.url == root_url
+  end
 end

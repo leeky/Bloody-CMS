@@ -1,3 +1,7 @@
+<% content_for :title do %>
+	<%= "#{@post.title} | " unless root? %>
+<% end %>
+
 <section>
 	<%= render :partial => @post, :locals => {:show_nav => true, :highlight_unpublished => false} %>
 </section>
