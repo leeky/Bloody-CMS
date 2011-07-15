@@ -44,7 +44,7 @@ class PagesController < ApplicationController
         @page.update_attribute('published_at', Time.now) if params[:commit] == 'Publish'
         
         if params[:commit] == 'Publish'
-          format.html { redirect_to @page, notice: 'Page was successfully published.' }
+          format.html { redirect_to root_page_path(@page), notice: 'Page was successfully published.' }
         else
           format.html { redirect_to edit_page_path(@post), notice: 'Page was successfully created.' }
         end
@@ -67,7 +67,7 @@ class PagesController < ApplicationController
         @page.update_attribute('published_at', nil) if params[:commit] == 'Unpublish'
         
         if params[:commit] == 'Publish'
-          format.html { redirect_to @page, notice: 'Page was successfully published.' }
+          format.html { redirect_to root_page_path(@page), notice: 'Page was successfully published.' }
         else
           format.html { redirect_to edit_page_path(@page), notice: 'Page was successfully updated.' }
         end

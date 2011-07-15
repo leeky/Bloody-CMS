@@ -1,6 +1,6 @@
 Bloodycms::Application.routes.draw do
-  resources :posts
-  resources :pages
+  resources :posts, :path => CONFIG['blog']['path']
+  resources :pages, :except => :index
   resources :authentications
   
   #authentication
@@ -9,6 +9,11 @@ Bloodycms::Application.routes.draw do
   match '/login' => redirect('/auth/twitter'), :as => "login"
   match '/logout' => "authentications#destroy", :as => "logout"
   
+  
+  #pages to root domain
+  match "/:id" => "pages#show", :as => "root_page", :method => :get
+
+  root :to => 'posts#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -59,7 +64,6 @@ Bloodycms::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'posts#index'
 
   # See how all your routes lay out with "rake routes"
 

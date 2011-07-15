@@ -7,10 +7,11 @@ home:
   title: "home"
 
 blog:
-  enabled: true
-  in_nav: true
-  title: "news"
+  enabled: true         #toggles wether this feature is enabled
+  in_nav: true          #toggles wether this feature is shown in the sidebar
+  title: "news"         #the title for the sidebar
+  path: "news"          #the path used in the url (e.g. http://example.com/your_path/post_name)
 
 pages:
-  enabled: true
-  in_nav: true
+  enabled: true         #toggles wether this feature is enabled
+  in_nav: true          #toggles wether this feature is shown in the sidebar

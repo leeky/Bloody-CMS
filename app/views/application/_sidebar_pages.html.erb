@@ -1,5 +1,5 @@
 <% pages = admin? ? Page.in_sidebar : Page.in_sidebar.published %>
 
 <% pages.each do |page| %>
-	<%= link_to page.sidebar_title_or_title, page  %>
+	<%= link_to page.sidebar_title_or_title, root_page_path(page)  %>
 <% end %>
