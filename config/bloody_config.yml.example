@@ -9,10 +9,14 @@ home:
 blog:
   enabled: true         #toggles wether this feature is enabled
   in_nav: true          #toggles wether this feature is shown in the sidebar
-  title: "news"         #the title for the sidebar
-  path: "news"          #the path used in the url (e.g. http://example.com/your_path/post_name)
+  title: "blog"         #the title for the sidebar
+  path: "blog"          #the path used in the url (e.g. http://example.com/your_path/post_name)
 
 pages:
   enabled: true         #toggles wether this feature is enabled
   in_nav: true          #toggles wether this feature is shown in the sidebar
-  root_page: "home"    #the root page to show instead of the blog
+  # root_page: "home"    #the root page to show instead of the blog
+  
+twitter:
+  consumer_key: ''
+  onsumer_secret: ''
