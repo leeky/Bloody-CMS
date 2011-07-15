@@ -1,3 +1,4 @@
+<% if CONFIG['sidebar'] && CONFIG['sidebar']['blocks'] %>
 <div id='blocks'>
 	<% CONFIG['sidebar']['blocks'].each do |name, code| %>
 		<div class='block'>
@@ -5,3 +6,4 @@
 		</div>
 	<% end %>
 </div>
+<% end %>
