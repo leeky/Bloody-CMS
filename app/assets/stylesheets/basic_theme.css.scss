@@ -124,12 +124,14 @@ footer {
 	}
 	
 	
-	#blocks {
-		margin-top: 20px;
-		
-		.block {
-			margin-bottom: 20px;
-			float: right;
+	.aside1 {
+		#blocks {
+			margin-top: 20px;
+
+			.block {
+				margin-bottom: 20px;
+				float: right;
+			}
 		}
 	}
 
@@ -197,6 +199,7 @@ body.posts, body.pages {
 			padding: 5px;
 			margin-bottom: 20px;
 			text-align: right;
+			margin-top: 4px;
 			
 			.button.left { float: left;	}
 		}

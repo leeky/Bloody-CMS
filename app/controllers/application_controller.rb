@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   
   def require_login 
     unless logged_in?
-      session[:redirect] = request.url unless request.xhr?
+      cookies[:auth_token] = request.url unless request.xhr?
       redirect_to login_url
     end
   end
@@ -32,9 +32,9 @@ class ApplicationController < ActionController::Base
   end
   
   def load_current_user
-    if session[:userid]
+    if cookies[:auth_token]
       begin
-        return User.find(session[:userid])
+        return User.find_by_auth_token(cookies[:auth_token])
       rescue
         return nil
       end

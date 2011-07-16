@@ -6,7 +6,7 @@ class AuthenticationsController < ApplicationController
   def create
     auth = request.env["omniauth.auth"]
     current_user = User.find_or_create_by_omniauth(auth)
-    session[:userid] = current_user.id unless current_user.nil?
+    cookies.permanent[:auth_token] = current_user.auth_token unless current_user.nil?
     
     target = root_url
     unless session[:redirect].nil?
@@ -17,7 +17,7 @@ class AuthenticationsController < ApplicationController
   end
 
   def destroy
-    session.delete :userid
+    cookies.delete(:auth_token)
     redirect_to root_url, :notice => "Bye, bye!"
   end
 end
