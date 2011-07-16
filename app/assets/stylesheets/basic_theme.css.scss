@@ -68,7 +68,19 @@ header img {
 	}
 }
 
-@media all and (min-width: 800px) {
+footer {
+	background-color: #fafafa;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	clear: both;
+	font-size: 0.8em;
+	padding: 3px 0px;
+	width: 600px;
+	display: block;
+	margin: 0px auto;
+}
+
+@media all and (min-width: 1000px) {
 
 	aside {
 		width: 200px;
@@ -79,6 +91,13 @@ header img {
 		float: left;
 		margin-top: 25px;
 		border-top: 1px solid #ddd;
+		
+		&#aside2 {
+			left: 0%;
+			float: right;
+			right: 50%;
+			margin-right: 145px;
+		}
 	
 	
 		a {
@@ -98,6 +117,7 @@ header img {
 		}
 	}
 	
+	
 	#blocks {
 		margin-top: 20px;
 		
@@ -109,7 +129,7 @@ header img {
 
 }
 
-@media all and (max-width: 799px) {
+@media all and (max-width: 999px) {
 
 	aside {
 		width: 600px;
@@ -132,7 +152,19 @@ header img {
 		}
 	}
 	
-	#blocks { display: none; }
+	#aside1 {
+		#blocks { display: none; }
+	}
+	
+	#aside2 {
+		.block {
+			display: inline;
+			
+			img {
+				width: 188px;
+			}
+		}
+	}
 }
 
 body.posts, body.pages {

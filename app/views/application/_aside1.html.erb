@@ -1,0 +1,11 @@
+<aside id='aside1'>
+	<% class_name = CONFIG['pages']['root_page'] ? (params[:id] == CONFIG['pages']['root_page'] ? 'active' : '') : (params[:controller] == "posts" && params[:action] == 'index' ? 'active' : '') %>
+	<%= link_to CONFIG['home']['sidebar_title'], root_url, :class => class_name  if show_sidebar_module?('home') %>
+	
+	<% class_name = params[:controller] == "posts" && class_name.blank? ? 'active' : '' %>
+	<%= link_to CONFIG['blog']['sidebar_title'], posts_path, :class => class_name  if show_sidebar_module?('blog') %>
+
+	<%= render :partial => 'sidebar_pages' if show_sidebar_module?('pages') %>
+	<%= render :partial => 'aside_blocks', :locals => {:sidebar => 'sidebar1'} %>
+
+</aside>
