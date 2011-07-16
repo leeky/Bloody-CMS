@@ -1,4 +1,6 @@
 Bloodycms::Application.routes.draw do
+  resources :events
+
   resources :posts, :path => CONFIG['blog']['path']
   resources :pages, :except => :index
   resources :authentications

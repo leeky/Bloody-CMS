@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyText
+  description: MyText
+  review: MyText
+  published_at: 2011-07-16 17:27:01
+  address: MyString
+  start_date: 2011-07-16 17:27:01
+  end_date: 2011-07-16 17:27:01
+  venue: MyString
+  signup_url: MyString
+
+two:
+  title: MyText
+  description: MyText
+  review: MyText
+  published_at: 2011-07-16 17:27:01
+  address: MyString
+  start_date: 2011-07-16 17:27:01
+  end_date: 2011-07-16 17:27:01
+  venue: MyString
+  signup_url: MyString
