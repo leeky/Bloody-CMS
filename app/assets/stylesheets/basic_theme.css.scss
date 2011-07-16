@@ -138,16 +138,16 @@ header img {
 body.posts, body.pages {
 	section {
 		width: 600px;
-		padding: 10px;
+		padding: 20px 10px;
 		margin: 0 auto;
 		
 		header {
-			margin-top: 10px;
+			margin-top: 9px;
 			background-color: inherit;
 			font-weight: bold;
 			font-size: 40px;
-			line-height: 1.47em;
 			border-bottom: 0px;
+			margin-bottom: 20px;
 			padding: 0px;
 		}
 		
@@ -244,8 +244,8 @@ body.posts, body.pages {
 			
 			header {
 				font-size: 30px;
-				margin-top: 5px;
-				margin-bottom: 0px;
+				margin-top: 3px;
+				margin-bottom: 5px;
 				
 				a {
 					text-decoration: none;

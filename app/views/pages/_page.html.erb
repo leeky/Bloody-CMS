@@ -1,6 +1,8 @@
 <% page ||= @page %>
 
-<header><%= show_nav ? page.title : link_to(page.title, page) if !root? %></header>
+<% if !root? %>
+	<header><%= show_nav ? page.title : link_to(page.title, page) %></header>
+<% end %>
 
 <article class="<%= "unpublished" unless page.published? || !highlight_unpublished %>">
 	<% unless page.published? || !highlight_unpublished %>
