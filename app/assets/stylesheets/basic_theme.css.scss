@@ -114,6 +114,12 @@ footer {
 				background-color: #fafafa;
 				color: #000;
 			}
+			
+			&.rss {
+				background-image: url('/assets/feed-icon-14x14.png');
+				background-repeat: no-repeat;
+				background-position: 160px 13px;
+			}
 		}
 	}
 	
@@ -149,6 +155,7 @@ footer {
 			line-height: 1em;
 		
 			&.active { color: #000;	}
+		
 		}
 	}
 	

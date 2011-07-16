@@ -6,6 +6,10 @@
 	<%= link_to CONFIG['blog']['sidebar_title'], posts_path, :class => class_name  if show_sidebar_module?('blog') %>
 
 	<%= render :partial => 'sidebar_pages' if show_sidebar_module?('pages') %>
+	
+	<%= link_to 'rss', posts_path(:rss), :class => "rss"  if active_module?('blog') %>
+	
+	
 	<%= render :partial => 'aside_blocks', :locals => {:sidebar => 'sidebar1'} %>
 
 </aside>
