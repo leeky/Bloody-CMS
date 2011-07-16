@@ -14,7 +14,7 @@
 	  <%= post.published_or_created_at.strftime("%A %e %B %Y - %R") %>
 	</time>
 	
-	<%= render :partial => "posts/post_controls" if show_nav && admin? %>
+	<%= render :partial => "posts/post_controls", :locals => {:post => post} if show_nav && admin? %>
 	
 	<div><%= markdown(post.content) %></div>
   

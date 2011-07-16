@@ -4,7 +4,7 @@
 <% end %>
 
 <section>
-	<%= render :partial => @posts, :locals => {:show_nav => false, :highlight_unpublished => true} %>
+	<%= render :partial => @posts, :locals => {:show_nav => true, :highlight_unpublished => true} %>
 	
 	<%= will_paginate @posts %>
 	
