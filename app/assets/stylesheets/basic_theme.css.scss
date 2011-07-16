@@ -142,9 +142,9 @@ body.posts, body.pages {
 		margin: 0 auto;
 		
 		header {
+			margin-top: 10px;
 			background-color: inherit;
 			font-weight: bold;
-			margin-bottom: 20px;
 			font-size: 40px;
 			line-height: 1.47em;
 			border-bottom: 0px;
@@ -246,10 +246,14 @@ body.posts, body.pages {
 				font-size: 30px;
 				margin-top: 10px;
 				margin-bottom: 0px;
+				
+				a {
+					text-decoration: none;
+				}
 			}
 			
 			time {
-				margin-bottom: 20px;
+				margin-bottom: 10px;
 				font-size: 0.8em;
 				display: block;
 			}
