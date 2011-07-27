@@ -1,6 +1,6 @@
 <%# body_classes << 'other_class_name' %>
 <% content_for :title do %>
-	<%= "#{CONFIG['blog']['title']} | " unless root? %>
+	<%= "#{Option.get("blog:title")} | " unless root? %>
 <% end %>
 
 <section>

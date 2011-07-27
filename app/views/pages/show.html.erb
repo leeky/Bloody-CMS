@@ -5,5 +5,5 @@
 <section>
 	<%= render :partial => @page, :locals => {:show_nav => true, :highlight_unpublished => false} %>
 
-	<%= render :partial => 'posts/recent' if CONFIG['blog']['enabled'] && CONFIG['blog']['show_recent'] && root?  %>
+	<%= render :partial => 'posts/recent' if Option.get("blog:enabled?") && Option.get("blog:show_recent?") && root?  %>
 </section>
