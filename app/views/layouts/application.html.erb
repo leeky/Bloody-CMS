@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <%= javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js" %>
 	<%= content_tag :link, nil, :rel => 'alternate', :type => 'application/rss+xm', :title => 'RSS', :href => posts_url(:rss) if Option.get('blog:enabled?') %>
 </head>
@@ -13,8 +14,8 @@
 <%= render :partial => 'controls_header' %>
 <%= render :partial => 'header' %>
 <%= render :partial => 'flash_messages' %>
-<%= render :partial => 'sidebar' %>
-
+<%= render :partial => 'aside1' %>
+<%= render :partial => 'aside2' %>
 
 <%= yield %>
 
