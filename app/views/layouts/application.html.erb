@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js" %>
 	<%= content_tag :link, nil, :rel => 'alternate', :type => 'application/rss+xm', :title => 'RSS', :href => posts_url(:rss) if Option.get('blog:enabled?') %>
 </head>
 <body class="<%= body_classes.join(' ') %>">

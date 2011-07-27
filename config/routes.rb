@@ -1,6 +1,4 @@
 Bloodycms::Application.routes.draw do
-  get "installer/index"
-
   resources :posts, :path => Option.get("blog:path") if Option.get('blog:enabled')
   resources :pages, :except => :index
   resources :authentications

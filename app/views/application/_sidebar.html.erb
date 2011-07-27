@@ -1,4 +1,6 @@
 <aside>
+	<%= link_to "Installer" , "installer#index", :class => 'active' unless Option.get("installed?") %>
+	
 	<% class_name = Option.get("pages:enabled?") && Option.get("pages:frontpage") ? (params[:id] == Option.get("pages:frontpage")  ? 'active' : '') : (params[:controller] == "posts" ? 'active' : '') %>
 	<%= link_to Option.get("home:sidebar_title") , root_url, :class => class_name if show_sidebar_module?('home') %>
 	

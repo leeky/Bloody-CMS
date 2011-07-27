@@ -1,5 +1,5 @@
 class Option < ActiveRecord::Base
-  def self.get(option_name)
+  def self.get(option_name, default=nil)
     tokens = option_name.split(":")
     raise ArgumentError, "Wrong argument count (expecting 1 or 2 instead of #{tokens.length})" unless tokens.count == 1 || tokens.count == 2
     
@@ -7,7 +7,7 @@ class Option < ActiveRecord::Base
     key = tokens.last
     
     option = Option.find_or_create_by_domain_and_key(domain, key)
-    option.value
+    option.value || default
   end
   
   def self.set(option_name, value)
