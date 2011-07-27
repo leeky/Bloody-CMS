@@ -4,7 +4,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&v2);
 
 body {
-	font-family: 'Lato', sans-serif;
+	font-family: "Lato", sans-serif;
 	line-height: 1.47em;
 }
 
@@ -69,89 +69,156 @@ header img {
 	}
 }
 
-@media all and (min-width: 800px) {
+footer {
+	background-color: #fafafa;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	clear: both;
+	font-size: 0.8em;
+	padding: 3px 0px;
+	width: 600px;
+	display: block;
+	margin: 0px auto 40px auto;
+}
 
-	aside {
-		width: 200px;
-		position: relative;
-		left: 50%;
-		margin-left: -530px;
-		text-align: right;
-		float: left;
-		margin-top: 25px;
-		border-top: 1px solid #ddd;
+aside {
+	width: 200px;
+	position: relative;
+	left: 50%;
+	margin-left: -530px;
+	text-align: right;
+	float: left;
+	margin-top: 25px;
+	border-top: 1px solid #ddd;
 	
-	
-		a {
+	&#aside2 {
+		margin-left: 330px;
+		position: absolute;
+						
+		h2 {
+			text-align: center;
 			font-weight: bold;
-			text-decoration: none;
-			display: block;
+			padding: 4px 0px;
+			font-size: 1em;
 			border-bottom: 1px solid #ddd;
-			padding: 10px 0px;
-			font-size: 2.0em;
-			line-height: 1em;
-		
-			&.active {
-				background-color: #fafafa;
-				color: #000;
-			}
 		}
 	}
+
+
+	a {
+		font-weight: bold;
+		left: 0px;
+		margin-left: 0px;
+		text-decoration: none;
+		display: block;
+		border-bottom: 1px solid #ddd;
+		padding: 10px 0px;
+		font-size: 2.0em;
+		line-height: 1em;
+		font-size: 15px;
 	
+		&.active {
+			background-color: #fafafa;
+			color: #000;
+		}
+		
+		&.rss {
+			background-image: url('/assets/feed-icon-14x14.png');
+			background-repeat: no-repeat;
+			background-position: 160px 13px;
+		}
+	}
+}
+
+
+.aside1 {
 	#blocks {
 		margin-top: 20px;
-		
+
 		.block {
 			margin-bottom: 20px;
 			float: right;
+
 		}
 	}
-
 }
 
-@media all and (max-width: 799px) {
+@media all and (max-width: 999px) {
 
 	aside {
 		width: 600px;
+		position: static;
 		margin: 0px auto;
 		margin-top: 20px;
+		float: none;
 		background-color: #fafafa;
 		border-bottom: 1px solid #ddd;
 		border-top: 1px solid #ddd;
-	
+		text-align: left;
+		
 		a {
 			margin-right: 10px;
 			font-weight: bold;
-			text-decoration: none;
+			border-bottom: 0px;
 			display: inline;
 			padding: 3px 0px;
 			font-size: 1.0em;
 			line-height: 1em;
 		
-			&.active {
-				color: #000;
+			&.active { 
+				color: #000;	
+				background-color: transparent;
+				border-bottom: 0px;
 			}
+		
 		}
 	}
 	
-	#blocks {
-		display: none;
+	aside#aside1 {
+		#blocks { display: none; }
+	}
+	
+	aside#aside2 {
+		text-align: center;
+		padding: 0px 0px 7px 0px;
+		float: none;
+		display: block;
+		position: static;
+		left: 0px;
+		margin:20px auto;
+		
+		.block {
+			display: inline;
+			
+			h2 {
+				text-align: center;
+				font-weight: bold;
+				padding: 4px 0px;
+				font-size: 1em;
+				border-bottom: 1px solid #ddd;
+				margin-bottom: 10px;
+			}
+			
+			img {
+				height: 60px;
+			}
+		}
 	}
 }
 
-body.posts, body.pages, body.installer {
+body.posts, body.pages {
 	section {
 		width: 600px;
-		padding: 10px;
+		padding: 20px 10px;
 		margin: 0 auto;
 		
 		header {
+			margin-top: 9px;
 			background-color: inherit;
 			font-weight: bold;
-			margin-bottom: 20px;
 			font-size: 40px;
-			line-height: 1.47em;
 			border-bottom: 0px;
+			margin-bottom: 20px;
 			padding: 0px;
 		}
 		
@@ -162,10 +229,9 @@ body.posts, body.pages, body.installer {
 			padding: 5px;
 			margin-bottom: 20px;
 			text-align: right;
+			margin-top: 4px;
 			
-			.button.left {
-				float: left;
-			}
+			.button.left { float: left;	}
 		}
 		
 		.pagination {
@@ -197,11 +263,7 @@ body.posts, body.pages, body.installer {
 			}
 		}
 		
-		form#new_post, form.edit_post, form#new_page, form.edit_page, form#installer_form {
-			header {
-				font-size: 1.2em;
-				margin-bottom: 10px;
-			}
+		form#new_post, form.edit_post, form#new_page, form.edit_page {
 			
 			input[type=text] {
 				color: #222;
@@ -227,9 +289,7 @@ body.posts, body.pages, body.installer {
 				border: 1px solid #a00;
 			}
 			
-			.info {
-				font-size: 0.8em;
-			}
+			.info { font-size: 0.8em; }
 		}
 		
 		article {
@@ -240,9 +300,7 @@ body.posts, body.pages, body.installer {
 			&.unpublished {
 				background-color: #f2f2f2;
 				
-				div, header, time {
-					padding: 0px 5px;
-				}
+				div, header, time {	padding: 0px 5px; }
 			}
 			
 			.warning {
@@ -258,12 +316,16 @@ body.posts, body.pages, body.installer {
 			
 			header {
 				font-size: 30px;
-				margin-top: 10px;
-				margin-bottom: 0px;
+				margin-top: 3px;
+				margin-bottom: 5px;
+				
+				a {
+					text-decoration: none;
+				}
 			}
 			
 			time {
-				margin-bottom: 20px;
+				margin-bottom: 10px;
 				font-size: 0.8em;
 				display: block;
 			}
@@ -271,7 +333,41 @@ body.posts, body.pages, body.installer {
 			div {
 				margin-bottom: 20px;
 				
+				h1 {
+					font-weight: bold;
+					font-size: 1.6em;
+					margin-bottom: 10px;
+				}
+				
+				h2 {
+					font-weight: bold;
+					font-size: 1.1em;
+					margin-bottom: 5px;
+				}
+				
+				em { font-style: italic; }
+				strong { font-weight: bold;	}
 				p {margin-bottom: 20px;}
+				
+				ul {
+					list-style: disc outside;
+					margin-left: 20px;
+					margin-bottom: 20px;
+					
+					li {
+						margin-bottom: 5px;
+					}
+				}
+				
+				ol {
+					list-style: decimal outside;
+					margin-left: 20px;
+					margin-bottom: 20px;
+					
+					li {
+						margin-bottom: 5px;
+					}
+				}
 				
 				img {
 					margin: 0px auto;
