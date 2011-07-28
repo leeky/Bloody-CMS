@@ -1,0 +1,34 @@
+<section>
+	<header><%= Option.get("installed?") ? "Options" : "You got this far!" %></header>
+	
+	<article>
+		<% unless Option.get("installed?") %>
+			<p>We just need some last bits of information to get you started.</p>
+		<% end %>
+		
+		<form action="" method="post" accept-charset="utf-8" id='options_form'>
+			  <label for='title'>Site title</label>
+				<div class="field">
+			   <input type='text' name='title' value='<%= Option.get('title') %>' placeholder='e.g. My cool site'>
+			  </div>
+				<label for='header_image'>Header image</label>
+				<div class='info'>Make sure to upload your own as an asset.</div>
+				<div class="field">
+			   <input type='text' name='header_image' value='<%= Option.get('header_image', '/images/header.png') %>' placeholder=''>
+			  </div>
+				<hr/>
+				<label for='twitter:consumer_key'>Twitter consumer key</label>
+				<div class='info'>Needed for authenticating site admins. You can get one <%= link_to "here", "https://dev.twitter.com/", :target => "_blank" %>.</div>
+				<div class="field">
+			   <input type='text' name='twitter:consumer_key' value='<%= Option.get('twitter:consumer_key') %>' placeholder=''>
+			  </div>
+				<label for='twitter:consumer_secret'>Twitter consumer secret</label>
+				<div class="field">
+			   <input type='password' name='twitter:consumer_secret' value='<%= Option.get('twitter:consumer_secret') %>' placeholder=''>
+			  </div>
+			  <div class="controls">
+					<input type="submit" value="Save" class='button medium green'>
+			  </div>
+		</form>
+	</article>
+</section>

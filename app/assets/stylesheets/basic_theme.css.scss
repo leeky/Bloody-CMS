@@ -206,7 +206,7 @@ aside {
 	}
 }
 
-body.posts, body.pages {
+body.posts, body.pages, body.options {
 	section {
 		width: 600px;
 		padding: 20px 10px;
@@ -263,9 +263,16 @@ body.posts, body.pages {
 			}
 		}
 		
-		form#new_post, form.edit_post, form#new_page, form.edit_page {
+		form#new_post, form.edit_post, form#new_page, form.edit_page, form#options_form {
 			
-			input[type=text] {
+			label {
+				font-size: 1.1em;
+				display: block;
+				font-weight: bold;
+				margin: 20px 0px 10px 0px;
+			}
+			
+			input[type=text], input[type=password] {
 				color: #222;
 				background-color: #fafafa;
 				padding: 5px 5px;
@@ -289,7 +296,7 @@ body.posts, body.pages {
 				border: 1px solid #a00;
 			}
 			
-			.info { font-size: 0.8em; }
+			.info { font-size: 0.8em; margin-bottom: 5px;}
 		}
 		
 		article {

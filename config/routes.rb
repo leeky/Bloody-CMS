@@ -3,6 +3,8 @@ Bloodycms::Application.routes.draw do
   resources :pages, :except => :index
   resources :authentications
   
+  match "/admin/options" => "options#index", :as => "options"
+  
   #authentication
   match '/auth/:provider/callback' => 'authentications#create'
   match '/auth/failure' => redirect("/")
@@ -14,8 +16,13 @@ Bloodycms::Application.routes.draw do
   match "/:id" => "pages#show", :as => "root_page", :method => :get
 
   #the root url can be configured
-  root :to => Option.get('root') if Option.get("installed?")
-  root :to => 'installer#index' unless Option.get("installed?")
+  Option.set('root', "posts#index")
+  if Option.get("installed?") && !Option.get('root').blank?
+    root :to => Option.get('root')
+  else 
+    root :to => 'options#index'
+  end
+  
   # root :to => 'posts#index' unless CONFIG['pages']['root_page'] && CONFIG['pages']['enabled']
   # root :to => 'pages#show', :id => CONFIG['pages']['root_page'] if CONFIG['pages']['root_page'] && CONFIG['pages']['enabled']
 end
