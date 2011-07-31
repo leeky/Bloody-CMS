@@ -10,6 +10,9 @@
 
 		<%= render :partial => 'sidebar_pages', :locals => {:pages => Page.published.in_sidebar} if show_sidebar_module?('pages') %>		
 		
+		<%= link_to 'rss', posts_path(:rss), :class => "rss"  if active_module?('blog') && Settings.get("blog:rss_in_sidebar?") %>
+		
+		
 		<% if admin? %>
 			<% if Page.unpublished.in_sidebar.count > 0 %><hr/><% end %>
 			<%= render :partial => 'sidebar_pages', :locals => {:pages => Page.unpublished.in_sidebar}  %>
