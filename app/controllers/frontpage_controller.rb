@@ -1,6 +1,6 @@
 class FrontpageController < ApplicationController
   def index
-    root_options = Settings.get('home:root_url').split("#")
+    root_options = Settings.get('root_url').split("#")
     if root_options[0] == 'pages'
       @page = Page.published.find_by_slug(root_options[1])
       @show_nav = false

@@ -16,9 +16,12 @@
 			<% if Settings.get("installed?") %>
 				<hr/>
 				<%= render :partial => "home_options" %>
+				<hr/>
+				<%= render :partial => "blog_options" %>
 			<% end %>
 			<hr/>
 			<%= render :partial => "twitter_options" %>
+			
 		  <div class="controls">
 				<input type="submit" value="Save" class='button medium green'>
 		  </div>

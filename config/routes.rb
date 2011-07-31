@@ -18,7 +18,4 @@ Bloodycms::Application.routes.draw do
 
   #the root url can be configured
   root :to => 'frontpage#index'
-  
-  # root :to => 'posts#index' unless CONFIG['pages']['root_page'] && CONFIG['pages']['enabled']
-  # root :to => 'pages#show', :id => CONFIG['pages']['root_page'] if CONFIG['pages']['root_page'] && CONFIG['pages']['enabled']
 end

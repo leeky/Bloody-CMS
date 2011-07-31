@@ -8,7 +8,7 @@ class Option < ActiveRecord::Base
     
     option = Option.find_by_domain_and_key(domain, key)
     if option.nil? || option.value.blank?
-      return default
+      option_name.ends_with?("?") ? false : default
     elsif option_name.ends_with?("?")
       return option.value == 't'
     else

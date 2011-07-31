@@ -1,3 +1,2 @@
 <%= render :partial => 'input', :locals => {:name => 'home:in_nav?', :label => 'Show home page link in the sidebar?', :required => false, :info => "This is the little 'home' in the navigation" }%>
-<%= render :partial => 'select', :locals => {:name => 'home:root_url', :label => 'What page  would you like to see on the frontpage?', :options => Page.published.collect {|page| ["pages##{page.slug}", page.title]}, :required => false } %>
 <%= render :partial => 'input', :locals => {:name => 'home:sidebar_title', :label => 'Home sidebar title', :required => false, :info => "The title for your homepage in the sidebar"}%>
