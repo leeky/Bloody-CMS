@@ -1,17 +1,41 @@
 class OptionsController < ApplicationController
   
-  before_filter :require_admin if Option.get("installed?") && !User.count.zero?
+  skip_before_filter :ensure_installed
+  before_filter :require_admin if Settings.get("installed?") && !User.count.zero?
   
   def index
+    @errors = Hash.new
+    
     if request.post?
-      params.each do |key, value|
-        Option.set(key, value)
+      @errors['title'] = "Please provide a title for your site" if params['title'].blank? 
+      @errors['twitter:consumer_key'] = "Please provide a Twitter consumer key" if params['twitter:consumer_key'].blank? 
+      @errors['twitter:consumer_secret'] = "Please provide a Twitter consumer secret" if params['twitter:consumer_secret'].blank? 
+      @errors['twitter:consumer_key'] = @errors['twitter:consumer_secret'] = "Your credentials are invalid. Please make sure you copy pasted the consumer key and secret exactly." if !params['twitter:consumer_key'].blank? && !params['twitter:consumer_secret'].blank? && !self.valid_twitter_credentials?
+      
+      if @errors.length.zero?  
+        params.each do |key, value|
+          Settings.set(key, value.strip)
+        end
+        unless Settings.get("installed?")
+          Settings.set("installed?", true)         
+          redirect_to "/", :notice => "You are all done now!"
+        end
       end
-      unless Option.get("installed?")
-        Option.set("installed?", true)
-        Option.set("root", "posts#index")
-        Option.set("cookies_secret_token", ActiveSupport::SecureRandom.hex(64))
-      end
+    end
+  end
+    
+  ###
+  ### Checks if the given twitter credentials are valid
+  ###
+  def valid_twitter_credentials?
+    begin
+      consumer = OAuth::Consumer.new(params['twitter:consumer_key'], params['twitter:consumer_secret'], :site => 'https://api.twitter.com/oauth/request_token')
+      consumer.get_request_token
+      #if it makes it this far all is good
+      return true
+    rescue
+      #if somethign went wrong, return false
+      return false
     end
   end
 end

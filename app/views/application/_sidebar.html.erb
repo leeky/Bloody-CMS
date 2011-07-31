@@ -1,11 +1,13 @@
 <aside>
-	<%= link_to "Installer" , "installer#index", :class => 'active' unless Option.get("installed?") %>
+	<% if !Settings.get("installed?") %>
+		<%= link_to "installer" , "installer#index", :class => 'active'  %>
+	<% else %>
+		<% class_name = root? ? 'active' : '' %>
+		<%= link_to Settings.get("home:sidebar_title") , root_url, :class => class_name if show_sidebar_module?('home') %>
 	
-	<% class_name = Option.get("pages:enabled?") && Option.get("pages:frontpage") ? (params[:id] == Option.get("pages:frontpage")  ? 'active' : '') : (params[:controller] == "posts" ? 'active' : '') %>
-	<%= link_to Option.get("home:sidebar_title") , root_url, :class => class_name if show_sidebar_module?('home') %>
-	
-	<% class_name = params[:controller] == "posts" && class_name.blank? ? 'active' : '' %>
-	<%= link_to Option.get("blog:sidebar_title"), posts_path, :class => class_name  if show_sidebar_module?('blog') %>
+		<% class_name = params[:controller] == "posts" && class_name.blank? ? 'active' : '' %>
+		<%= link_to Settings.get("blog:sidebar_title"), posts_path, :class => class_name  if show_sidebar_module?('blog') %>
 
-	<%= render :partial => 'sidebar_pages' if show_sidebar_module?('pages') %>
+		<%= render :partial => 'sidebar_pages' if show_sidebar_module?('pages') %>
+	<% end %>
 </aside>

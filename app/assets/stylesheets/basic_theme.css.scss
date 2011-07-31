@@ -270,6 +270,11 @@ body.posts, body.pages, body.options {
 				display: block;
 				font-weight: bold;
 				margin: 20px 0px 10px 0px;
+				
+				span {
+					font-size: 0.8em;
+					color: #a00;
+				}
 			}
 			
 			input[type=text], input[type=password] {
@@ -279,6 +284,10 @@ body.posts, body.pages, body.options {
 				width: 590px;
 				font-size: 1.2em;
 				border: 1px solid #aaa;
+				
+				&.error {
+					border: 1px solid #a00;	
+				}
 			}
 			
 			textarea {
@@ -297,6 +306,7 @@ body.posts, body.pages, body.options {
 			}
 			
 			.info { font-size: 0.8em; margin-bottom: 5px;}
+			.error { font-size: 0.8em; margin-bottom: 5px; color: #a00;}
 		}
 		
 		article {
@@ -324,7 +334,7 @@ body.posts, body.pages, body.options {
 			header {
 				font-size: 30px;
 				margin-top: 3px;
-				margin-bottom: 5px;
+				margin-bottom: 15px;
 				
 				a {
 					text-decoration: none;

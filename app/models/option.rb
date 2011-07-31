@@ -6,8 +6,12 @@ class Option < ActiveRecord::Base
     domain = tokens.count == 2 ? tokens.first : "general"
     key = tokens.last
     
-    option = Option.find_or_create_by_domain_and_key(domain, key)
-    option.value || default
+    option = Option.find_by_domain_and_key(domain, key)
+    if option.nil?
+      return default
+    else
+      return option.value
+    end
   end
   
   def self.set(option_name, value)
@@ -28,7 +32,7 @@ class Option < ActiveRecord::Base
   
   def self.set_all(options)
     options.each do |key, value|
-      Option.set(key, value)
+      Settings.set(key, value)
     end
   end
 end

@@ -1,5 +1,5 @@
 Bloodycms::Application.routes.draw do
-  resources :posts, :path => Option.get("blog:path") if Option.get('blog:enabled')
+  resources :posts, :path => Settings.get("blog:path") if Settings.get('blog:enabled?')
   resources :pages, :except => :index
   resources :authentications
   
@@ -7,6 +7,7 @@ Bloodycms::Application.routes.draw do
   
   #authentication
   match '/auth/:provider/callback' => 'authentications#create'
+  match '/auth/twitter/setup', :to => 'authentications#setup'
   match '/auth/failure' => redirect("/")
   match '/login' => redirect('/auth/twitter'), :as => "login"
   match '/logout' => "authentications#destroy", :as => "logout"
@@ -16,12 +17,7 @@ Bloodycms::Application.routes.draw do
   match "/:id" => "pages#show", :as => "root_page", :method => :get
 
   #the root url can be configured
-  Option.set('root', "posts#index")
-  if Option.get("installed?") && !Option.get('root').blank?
-    root :to => Option.get('root')
-  else 
-    root :to => 'options#index'
-  end
+  root :to => 'frontpage#index'
   
   # root :to => 'posts#index' unless CONFIG['pages']['root_page'] && CONFIG['pages']['enabled']
   # root :to => 'pages#show', :id => CONFIG['pages']['root_page'] if CONFIG['pages']['root_page'] && CONFIG['pages']['enabled']

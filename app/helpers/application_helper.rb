@@ -17,11 +17,11 @@ module ApplicationHelper
   end
   
   def show_sidebar_module?(name)
-    self.active_module?(name) && Option.get("#{name}:in_nav?")
+    self.active_module?(name) && Settings.get("#{name}:in_nav?")
   end
   
   def active_module?(name)
-    Option.get("#{name}:enabled?") 
+    Settings.get("#{name}:enabled?") 
   end
   
   def root?
