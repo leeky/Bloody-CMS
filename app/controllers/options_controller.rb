@@ -19,9 +19,14 @@ class OptionsController < ApplicationController
           Settings.set(key, value)
         end
         
+        Bloodycms::Application.reload_routes!
         
         if Settings.get("installed?")
-          Settings.set("home:in_nav?", false) unless params["home:in_nav::"]
+          Settings.set("home:enabled?", false) unless params["home:enabled::"]
+          Settings.set("blog:enabled?", false) unless params["blog:enabled::"]
+          Settings.set("blog:in_nav?", false) unless params["blog:in_nav::"]
+          
+          
           redirect_to options_path, :notice => "Changes saved."
         else
           Settings.set("installed?", true)         

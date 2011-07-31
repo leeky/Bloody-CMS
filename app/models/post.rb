@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
   
   before_validation :slugify
   
-  attr_accessible :title, :content
+  attr_accessible :title, :content, :published_at
   validates_presence_of :title, :content
   
   # scopes

@@ -11,6 +11,10 @@ Page.create(:title => "Home",
             :content => "This is your first page. You can now add more pages, a blog, and much more.", 
             :published_at => Time.now)
             
+Post.create(:title => "Home", 
+            :content => "This is your first post. You can now add more posts or delete this one.", 
+            :published_at => Time.now)
+            
 Option.set("root:header_image", "bloody_cms.png")
 Option.set("pages:in_nav?", true)
 Option.set("root", "posts#index")
@@ -21,5 +25,6 @@ Option.set('home:sidebar_title', "home")
 Option.set('home:enabled?', true)
 Option.set('home:in_nav?', true)
 Option.set('blog:enabled?', false)
-Option.set('blog:path', "/blog")
+Option.set('blog:path', "blog")
+
 

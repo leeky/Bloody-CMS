@@ -1,5 +1,5 @@
 Bloodycms::Application.routes.draw do
-  resources :posts, :path => Settings.get("blog:path") if Settings.get('blog:enabled?')
+  resources :posts, :path => Settings.get("blog:path", "blog") if Settings.get('blog:enabled?')
   resources :pages, :except => :index
   resources :authentications
   

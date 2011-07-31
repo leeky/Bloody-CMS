@@ -4,7 +4,7 @@
 <% value = type == 'checkbox' ? 't' : pure_value %>
 <% input_name = name.gsub("?", "::") %>
 
-<div class="field <%= "toggable" if name.ends_with?("?") %>" data-group='<%= name.split(":").first %>'>
+<div class="field <%= "toggable" if name.ends_with?("enabled?") %>" data-group='<%= name.split(":").first %>'>
 	<label for='<%= name %>'><%= label %> <% if required %><span>- required</span><% end %></label>
 	<% if defined? info %><div class='info'><%= info.html_safe %></div><% end %>
 	
