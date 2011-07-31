@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   
-  before_save :slugify
+  before_validation :slugify
   
   attr_accessible :title, :content
   validates_presence_of :title, :content
@@ -8,6 +8,7 @@ class Post < ActiveRecord::Base
   # scopes
   scope :published, where("published_at IS NOT NULL")
   scope :descending_date, order("published_at DESC,  created_at DESC")
+  validates_uniqueness_of :slug, :message => "^A post with a similar title already exists"
 
   
   def to_param

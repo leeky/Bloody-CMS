@@ -21,6 +21,9 @@ gem 'nokogiri'
 #pagination
 gem "will_paginate", :git => "https://github.com/JackDanger/will_paginate.git", :branch => 'rails3.1'
 
+#form helper
+gem "dynamic_form"
+
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false

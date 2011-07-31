@@ -14,9 +14,16 @@ class OptionsController < ApplicationController
       
       if @errors.length.zero?  
         params.each do |key, value|
-          Settings.set(key, value.strip)
+          key = key.gsub("::", "?")
+          value = value.strip if value.is_a? String
+          Settings.set(key, value)
         end
-        unless Settings.get("installed?")
+        
+        
+        if Settings.get("installed?")
+          Settings.set("home:in_nav?", false) unless params["home:in_nav::"]
+          redirect_to options_path, :notice => "Changes saved."
+        else
           Settings.set("installed?", true)         
           redirect_to "/", :notice => "You are all done now!"
         end

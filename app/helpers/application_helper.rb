@@ -17,11 +17,15 @@ module ApplicationHelper
   end
   
   def show_sidebar_module?(name)
-    self.active_module?(name) && Settings.get("#{name}:in_nav?")
+    self.active_module?(name) && Settings.get("#{name}:in_nav?") 
   end
   
   def active_module?(name)
-    Settings.get("#{name}:enabled?") 
+    Settings.get("#{name}:enabled?")
+  end
+  
+  def active_class_for_path(classname, path)
+    return classname if path == request.path
   end
   
   def root?

@@ -91,6 +91,12 @@ aside {
 	margin-top: 25px;
 	border-top: 1px solid #ddd;
 	
+	
+	hr {
+		margin: 0px;
+		padding: 0px;
+	}
+	
 	&#aside2 {
 		margin-left: 330px;
 		position: absolute;
@@ -116,10 +122,12 @@ aside {
 		font-size: 2.0em;
 		line-height: 1em;
 		font-size: 15px;
+		color: #000;
+		
 	
 		&.active {
 			background-color: #fafafa;
-			color: #000;
+			color: #a00;
 		}
 		
 		&.rss {
@@ -141,6 +149,7 @@ aside {
 
 		}
 	}
+
 }
 
 @media all and (max-width: 999px) {
@@ -269,7 +278,13 @@ body.posts, body.pages, body.options {
 				font-size: 1.1em;
 				display: block;
 				font-weight: bold;
-				margin: 20px 0px 10px 0px;
+				margin: 20px 0px 5px 0px;
+				
+				&.inline {
+					display: inline;
+					font-size: 1em;
+					font-weight: normal;
+				}
 				
 				span {
 					font-size: 0.8em;
@@ -305,7 +320,7 @@ body.posts, body.pages, body.options {
 				border: 1px solid #a00;
 			}
 			
-			.info { font-size: 0.8em; margin-bottom: 5px;}
+			.info { font-size: 0.8em; margin: 0px 0px 5px 0px;}
 			.error { font-size: 0.8em; margin-bottom: 5px; color: #a00;}
 		}
 		

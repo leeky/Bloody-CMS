@@ -1,9 +1,9 @@
 <% content_for :title do %>
-	<%= "Installer |" %>
+	<%= Settings.get("installed?") ? "Configuration | " : "Installer | " %>
 <% end %>
 
 <section>
-	<header><%= Settings.get("installed?") ? "Options" : "You got this far!" %></header>
+	<header><%= Settings.get("installed?") ? "Configuration" : "You got this far!" %></header>
 	
 	<article>
 		<% unless Settings.get("installed?") %>
@@ -11,12 +11,14 @@
 		<% end %>
 				
 		<%= form_tag "", :method => :post, :id => 'options_form' %>
-			<%= render :partial => 'field', :locals => {:name => 'title', :label => 'Site title', :required => true, :placeholder => 'e.g. My cool site'}%>
-			<%= render :partial => 'field', :locals => {:name => 'header_image', :label => 'Header image', :required => true, :default => 'bloody_cms.png', :info => 'Make sure to upload your own asset.'}%>
+			<%= render :partial => "general_options" %>
+			
+			<% if Settings.get("installed?") %>
+				<hr/>
+				<%= render :partial => "home_options" %>
+			<% end %>
 			<hr/>
-			<%= render :partial => 'field', :locals => {:name => 'twitter:consumer_key', :label => 'Twitter key', :required => true, :info => "Needed for authenticating site admins. You can get one #{link_to "here", "https://dev.twitter.com/", :target => "_blank"}."}%>
-			<%= render :partial => 'field', :locals => {:name => 'twitter:consumer_secret', :label => 'Twitter secret', :required => true}%>
-
+			<%= render :partial => "twitter_options" %>
 		  <div class="controls">
 				<input type="submit" value="Save" class='button medium green'>
 		  </div>

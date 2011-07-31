@@ -1,0 +1,20 @@
+<% default ||= "" %>
+<% type = name.ends_with?("?") ? "checkbox" : "text" %>
+<% pure_value = params[name] || Settings.get(name, default) %>
+<% value = type == 'checkbox' ? 't' : pure_value %>
+<% input_name = name.gsub("?", "::") %>
+
+<div class="field <%= "toggable" if name.ends_with?("?") %>" data-group='<%= name.split(":").first %>'>
+	<label for='<%= name %>'><%= label %> <% if required %><span>- required</span><% end %></label>
+	<% if defined? info %><div class='info'><%= info.html_safe %></div><% end %>
+	
+	<% if @errors.key?(name)  %><div class='error'><%= @errors[name] %></div><% end %>
+	
+  <input type='<%= type %>' name='<%= input_name %>' value='<%= value %>' 
+				 placeholder='<%= placeholder if defined? placeholder %>' 
+				 class="<%= 'error'  if @errors.key? name %>" 
+				<% if type == 'checkbox' && pure_value %>checked<% end %>>	
+	
+	
+	<% if type == 'checkbox' %><label for='<%= name %>' class='inline'>Yes</label><% end %>
+</div>
