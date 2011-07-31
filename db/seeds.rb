@@ -11,7 +11,7 @@ Page.create(:title => "Home",
             :content => "This is your first page. You can now add more pages, a blog, and much more.", 
             :published_at => Time.now)
             
-Post.create(:title => "Home", 
+Post.create(:title => "Your first post", 
             :content => "This is your first post. You can now add more posts or delete this one.", 
             :published_at => Time.now)
             

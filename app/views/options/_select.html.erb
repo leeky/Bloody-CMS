@@ -5,7 +5,7 @@
 
   <select name="<%= name %>">
 		<% options.each do |option| %>
-  		<option value="<%= option[0] %>"><%= option[1] %></option>
+  		<option value="<%= option[0] %>" <%= "selected" if Settings.get(name).to_s == option[0] %>><%=  option[1] %></option>
 		<% end %>
   </select>	
 

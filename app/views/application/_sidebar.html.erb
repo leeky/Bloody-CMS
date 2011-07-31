@@ -3,7 +3,7 @@
 		<%= link_to "installer" , "installer#index", :class => 'active'  %>
 	<% else %>
 		<% class_name = root? ? 'active' : '' %>
-		<%= link_to Settings.get("home:sidebar_title", "home") , root_url, :class => class_name if show_sidebar_module?('home') %>
+		<%= link_to Settings.get("home:sidebar_title", "home") , root_url, :class => class_name if Settings.get('home:enabled?') %>
 	
 		<% class_name = params[:controller] == "posts" && class_name.blank? ? 'active' : '' %>
 		<%= link_to Settings.get("blog:sidebar_title"), posts_path, :class => class_name  if show_sidebar_module?('blog') %>
