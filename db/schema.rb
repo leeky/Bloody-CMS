@@ -21,6 +21,20 @@ ActiveRecord::Schema.define(:version => 20110727214741) do
     t.string   "access_token"
   end
 
+  create_table "events", :force => true do |t|
+    t.text     "title"
+    t.text     "description"
+    t.text     "review"
+    t.datetime "published_at"
+    t.string   "address"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "venue"
+    t.string   "signup_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "options", :force => true do |t|
     t.string   "domain"
     t.string   "key"
@@ -65,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20110727214741) do
     t.boolean  "is_admin"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "auth_token"
   end
 
 end
