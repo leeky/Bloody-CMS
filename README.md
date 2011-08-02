@@ -8,7 +8,7 @@ Simple installation instructions
 
 Clone the git repository.
 
-    $ git clone git@github.com:cbetta/Bloody-CMS.git
+    $ git clone git://github.com/cbetta/Bloody-CMS.git
     
 Run bundler to install all gems.
 
@@ -38,6 +38,12 @@ First perform the simple installation instructions above.
 Next up run the Heroku command to create a new app.
 
     $ heroku create 
+
+Now because we are using Rails 3.1 which has a new assets pipeline that's not fully supported by Heroku, we will have to precompile and commit our assets.
+
+    $ rake assets:precompile
+    $ git add public/assets/*
+		$ git commit -m "Compiled assets"
 
 Now push your app to Heroku.
 
