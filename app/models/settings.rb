@@ -1,10 +1,10 @@
 class Settings
   def self.get(option_name, default=nil)
-    # begin 
+    begin 
       return Option.get(option_name, default)
-    # rescue
-    #   return nil
-    # end
+    rescue
+      return nil
+    end
   end
 
   def self.set(option_name, value)
