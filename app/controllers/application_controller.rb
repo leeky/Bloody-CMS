@@ -1,9 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  before_filter :current_user, :logged_in?, :admin?
   helper_method :current_user, :logged_in?, :admin?
-  
+  before_filter :current_user, :logged_in?, :admin?, :ensure_installed, :ensure_one_admin
   
   private 
   
@@ -29,6 +28,14 @@ class ApplicationController < ActionController::Base
   
   def admin?
     @admin = logged_in? && @current_user.is_admin
+  end
+  
+  def ensure_installed
+    redirect_to "/admin/options" unless Settings.get("installed?") 
+  end
+  
+  def ensure_one_admin
+    redirect_to "/auth/twitter" if User.admin.count.zero? && Settings.get("installed?") 
   end
   
   def load_current_user

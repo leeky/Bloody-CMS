@@ -1,0 +1,6 @@
+<%= render :partial => 'input', :locals => {:name => 'blog:enabled?', :label => 'Enable blog module?', :required => false, :info => "The blogging module features a nice rss feed and no comments. Awesome right?" }%>
+<%= render :partial => 'input', :locals => {:name => 'blog:in_nav?', :label => 'Show in sidebar?', :required => false }%>
+<%= render :partial => 'input', :locals => {:name => 'blog:sidebar_title', :label => 'Blog sidebar title', :required => false, :default => "blog", :info => 'The title for the blog module in the sidebar' }%>
+<%= render :partial => 'input', :locals => {:name => 'blog:path', :label => 'Custom blog path', :required => false, :default => "blog", :info => 'A custom path for your blog. Leave out any begin or end slashes.' }%>
+<%= render :partial => 'input', :locals => {:name => 'blog:rss_in_sidebar?', :label => 'Show the RSS feed in the sidebar?', :required => false }%>
+<%= render :partial => 'select', :locals => {:name => 'blog:show_recent_posts', :label => 'Show recent posts on the frontpage?', :info => "This will show the last few posts on the frontpage", :options => {'0' => 'None', '1' => 'Only the last one', '2' => 'The last two', '3' => 'The latest three'}, :required => false }%>

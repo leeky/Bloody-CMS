@@ -1,9 +1,10 @@
 //
 // Do not change this file. Instead create a new file that overwrites this one
 //
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&v2);
 
 body {
-	font-family: Georgia,"Times New Roman", Times, serif;
+	font-family: "Lato", sans-serif;
 	line-height: 1.47em;
 }
 
@@ -77,115 +78,94 @@ footer {
 	padding: 3px 0px;
 	width: 600px;
 	display: block;
-	margin: 0px auto;
+	margin: 0px auto 40px auto;
 }
 
-@media all and (min-width: 1000px) {
-
-	aside {
-		width: 200px;
-		position: relative;
-		left: 50%;
-		margin-left: -530px;
-		text-align: right;
-		float: left;
-		margin-top: 25px;
-		border-top: 1px solid #ddd;
-		
-		&#aside2 {
-			left: 0%;
-			float: right;
-			right: 50%;
-			margin-right: 145px;
-			
-			h2 {
-				font-weight: bold;
-				text-align: center;
-				padding: 5px 0px;
-			}
-		}
+aside {
+	width: 200px;
+	position: relative;
+	left: 50%;
+	margin-left: -530px;
+	text-align: right;
+	float: left;
+	margin-top: 25px;
+	border-top: 1px solid #ddd;
 	
 	
-		a {
-			font-weight: bold;
-			text-decoration: none;
-			display: block;
-			border-bottom: 1px solid #ddd;
-			padding: 10px 0px;
-			font-size: 2.0em;
-			line-height: 1em;
-			font-size: 15px;
-		
-			&.active {
-				background-color: #fafafa;
-				color: #000;
-			}
-			
-			&.rss {
-				background-image: url('/assets/feed-icon-14x14.png');
-				background-repeat: no-repeat;
-				background-position: 160px 13px;
-			}
-		}
+	hr {
+		margin: 0px;
+		padding: 0px;
 	}
 	
+	a {
+		font-weight: bold;
+		left: 0px;
+		margin-left: 0px;
+		text-decoration: none;
+		display: block;
+		border-bottom: 1px solid #ddd;
+		padding: 10px 0px;
+		font-size: 2.0em;
+		line-height: 1em;
+		font-size: 15px;
+		color: #000;
+		
 	
-	.aside1 {
-		#blocks {
-			margin-top: 20px;
-
-			.block {
-				margin-bottom: 20px;
-				float: right;
-			}
+		&.active {
+			background-color: #fafafa;
+			color: #a00;
+		}
+		
+		&.rss {
+			background-image: url('/assets/feed-icon-14x14.png');
+			background-repeat: no-repeat;
+			background-position: 160px 13px;
 		}
 	}
-
-
 }
+
 
 @media all and (max-width: 999px) {
 
 	aside {
 		width: 600px;
+		position: static;
 		margin: 0px auto;
 		margin-top: 20px;
+		float: none;
 		background-color: #fafafa;
 		border-bottom: 1px solid #ddd;
 		border-top: 1px solid #ddd;
-	
+		text-align: left;
+		border-right: 1px solid #ddd;
+		
+		hr {
+			display: none;
+		}
+		
 		a {
 			margin-right: 10px;
 			font-weight: bold;
-			text-decoration: none;
-			display: inline;
-			padding: 3px 0px;
+			border-bottom: 0px;
+			display: inline-block;
+			padding: 6px 0px;
 			font-size: 1.0em;
 			line-height: 1em;
-		
-			&.active { color: #000;	}
-		
-		}
-	}
-	
-	#aside1 {
-		#blocks { display: none; }
-	}
-	
-	#aside2 {
-		
+			border-left: 1px solid #ddd;
+			padding-left: 15px;
 
-		.block {
-			display: inline;
-			
-			img {
-				width: 188px;
+		
+			&.active { 
+				color: #000;	
+				background-color: transparent;
+				border-bottom: 0px;
 			}
+		
 		}
 	}
 }
 
-body.posts, body.pages {
+body.posts, body.pages, body.options {
 	section {
 		width: 600px;
 		padding: 20px 10px;
@@ -242,15 +222,37 @@ body.posts, body.pages {
 			}
 		}
 		
-		form#new_post, form.edit_post, form#new_page, form.edit_page {
+		form#new_post, form.edit_post, form#new_page, form.edit_page, form#options_form {
 			
-			input[type=text] {
+			label {
+				font-size: 1.1em;
+				display: block;
+				font-weight: bold;
+				margin: 20px 0px 5px 0px;
+				
+				&.inline {
+					display: inline;
+					font-size: 1em;
+					font-weight: normal;
+				}
+				
+				span {
+					font-size: 0.8em;
+					color: #a00;
+				}
+			}
+			
+			input[type=text], input[type=password] {
 				color: #222;
 				background-color: #fafafa;
 				padding: 5px 5px;
 				width: 590px;
 				font-size: 1.2em;
 				border: 1px solid #aaa;
+				
+				&.error {
+					border: 1px solid #a00;	
+				}
 			}
 			
 			textarea {
@@ -268,7 +270,8 @@ body.posts, body.pages {
 				border: 1px solid #a00;
 			}
 			
-			.info { font-size: 0.8em; }
+			.info { font-size: 0.8em; margin: 0px 0px 5px 0px;}
+			.error { font-size: 0.8em; margin-bottom: 5px; color: #a00;}
 		}
 		
 		article {
@@ -296,7 +299,7 @@ body.posts, body.pages {
 			header {
 				font-size: 30px;
 				margin-top: 3px;
-				margin-bottom: 5px;
+				margin-bottom: 15px;
 				
 				a {
 					text-decoration: none;

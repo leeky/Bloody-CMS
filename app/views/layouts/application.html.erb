@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= yield :title %><%= CONFIG['title'] %></title>
+  <title><%= yield :title %><%= Settings.get('title', 'Bloody CMS') %></title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-	<%= content_tag :link, nil, :rel => 'alternate', :type => 'application/rss+xm', :title => 'RSS', :href => posts_url(:rss) if CONFIG['blog']['enabled'] %>
-
+  <%= javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js" %>
+	<%= content_tag :link, nil, :rel => 'alternate', :type => 'application/rss+xm', :title => 'RSS', :href => posts_url(:rss) if Settings.get('blog:enabled?') %>
 </head>
 <body class="<%= body_classes.join(' ') %>">
 	
 <%= render :partial => 'controls_header' %>
 <%= render :partial => 'header' %>
 <%= render :partial => 'flash_messages' %>
-<%= render :partial => 'aside1' %>
-<%= render :partial => 'aside2' %>
-
-
+<%= render :partial => 'sidebar' %>
 <%= yield %>
-
-<%= render :partial => 'footer' %>
-
 
 </body>
 </html>

@@ -1,0 +1,12 @@
+<div class="field" data-group='<%= name.split(":").first %>'>
+	<label for='<%= name %>'><%= label %> <% if required %><span>- required</span><% end %></label>
+	<% if defined? info %><div class='info'><%= info.html_safe %></div><% end %>
+	<% if @errors.key?(name)  %><div class='error'><%= @errors[name] %></div><% end %>
+
+  <select name="<%= name %>">
+		<% options.each do |option| %>
+  		<option value="<%= option[0] %>" <%= "selected" if Settings.get(name).to_s == option[0] %>><%=  option[1] %></option>
+		<% end %>
+  </select>	
+
+</div>

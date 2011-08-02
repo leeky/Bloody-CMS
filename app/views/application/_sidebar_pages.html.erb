@@ -1,6 +1,8 @@
-<% pages = admin? ? Page.in_sidebar : Page.in_sidebar.published %>
-
 <% pages.each do |page| %>
 	<% class_name = params[:controller] == 'pages' && params[:id] == page.slug ? 'active' : '' %>
-	<%= link_to page.sidebar_title_or_title, root_page_path(page), :class => class_name  %>
+	<% 
+		name = page.sidebar_title_or_title 
+		name += " (unpublished)" if !page.published?
+		name += " (not in sidebar)" if !page.in_sidebar? %>
+	<%= link_to name, root_page_path(page), :class => class_name  %>
 <% end %>

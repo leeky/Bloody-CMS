@@ -1,9 +1,5 @@
 <% page ||= @page %>
 
-<% if !root? %>
-	<header><%= show_nav ? page.title : link_to(page.title, page) %></header>
-<% end %>
-
 <article class="<%= "unpublished" unless page.published? || !highlight_unpublished %>">
 	<% unless page.published? || !highlight_unpublished %>
 		<span class='warning'>
@@ -11,7 +7,9 @@
 				<%= link_to 'Edit', edit_page_path(page), :class => 'button white medium' %>
 		</span>
 	<% end %>
-		
+	
+	<% unless root? %><header><%= page.title %></header><% end %>
+	
 	<%= render :partial => "pages/page_controls" if show_nav && admin? %>
 	
 	<div><%= markdown(page.content) %></div>

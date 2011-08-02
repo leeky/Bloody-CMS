@@ -1,0 +1,30 @@
+<% content_for :title do %>
+	<%= Settings.get("installed?") ? "Configuration | " : "Installer | " %>
+<% end %>
+
+<section>
+	<header><%= Settings.get("installed?") ? "Configuration" : "You got this far!" %></header>
+	
+	<article>
+		<% unless Settings.get("installed?") %>
+			<p>We just need some last bits of information to get you started.</p>
+		<% end %>
+				
+		<%= form_tag "", :method => :post, :id => 'options_form' %>
+			<%= render :partial => "general_options" %>
+			
+			<% if Settings.get("installed?") %>
+				<hr/>
+				<%= render :partial => "home_options" %>
+				<hr/>
+				<%= render :partial => "blog_options" %>
+			<% end %>
+			<hr/>
+			<%= render :partial => "twitter_options" %>
+			
+		  <div class="controls">
+				<input type="submit" value="Save" class='button medium green'>
+		  </div>
+		</form>
+	</article>
+</section>
