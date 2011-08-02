@@ -97,20 +97,6 @@ aside {
 		padding: 0px;
 	}
 	
-	&#aside2 {
-		margin-left: 330px;
-		position: absolute;
-						
-		h2 {
-			text-align: center;
-			font-weight: bold;
-			padding: 4px 0px;
-			font-size: 1em;
-			border-bottom: 1px solid #ddd;
-		}
-	}
-
-
 	a {
 		font-weight: bold;
 		left: 0px;
@@ -139,19 +125,6 @@ aside {
 }
 
 
-.aside1 {
-	#blocks {
-		margin-top: 20px;
-
-		.block {
-			margin-bottom: 20px;
-			float: right;
-
-		}
-	}
-
-}
-
 @media all and (max-width: 999px) {
 
 	aside {
@@ -164,15 +137,23 @@ aside {
 		border-bottom: 1px solid #ddd;
 		border-top: 1px solid #ddd;
 		text-align: left;
+		border-right: 1px solid #ddd;
+		
+		hr {
+			display: none;
+		}
 		
 		a {
 			margin-right: 10px;
 			font-weight: bold;
 			border-bottom: 0px;
-			display: inline;
-			padding: 3px 0px;
+			display: inline-block;
+			padding: 6px 0px;
 			font-size: 1.0em;
 			line-height: 1em;
+			border-left: 1px solid #ddd;
+			padding-left: 15px;
+
 		
 			&.active { 
 				color: #000;	
@@ -180,37 +161,6 @@ aside {
 				border-bottom: 0px;
 			}
 		
-		}
-	}
-	
-	aside#aside1 {
-		#blocks { display: none; }
-	}
-	
-	aside#aside2 {
-		text-align: center;
-		padding: 0px 0px 7px 0px;
-		float: none;
-		display: block;
-		position: static;
-		left: 0px;
-		margin:20px auto;
-		
-		.block {
-			display: inline;
-			
-			h2 {
-				text-align: center;
-				font-weight: bold;
-				padding: 4px 0px;
-				font-size: 1em;
-				border-bottom: 1px solid #ddd;
-				margin-bottom: 10px;
-			}
-			
-			img {
-				height: 60px;
-			}
 		}
 	}
 }
