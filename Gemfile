@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc4'
+gem 'rails', '3.1.0.rc6'
 gem 'sqlite3'
 
 # Asset template engines
@@ -18,6 +18,9 @@ gem 'redcarpet'
 gem 'albino'
 gem 'nokogiri'
 
+#memcache
+gem 'dalli'
+
 #pagination
 gem "will_paginate", :git => "https://github.com/JackDanger/will_paginate.git", :branch => 'rails3.1'
 
@@ -29,7 +32,6 @@ group :test do
   gem 'turn', :require => false
 end
 
-# Uncomment this when deploying to heroku
 group :production do
   gem 'pg'
   gem 'therubyracer-heroku', '0.8.1.pre3'

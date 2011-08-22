@@ -1,8 +1,8 @@
 class Settings
   def self.get(option_name, default=nil)
     begin 
-      return Option.get(option_name, default)
-    rescue
+      return Option.get(option_name, default) 
+    rescue      
       return nil
     end
   end

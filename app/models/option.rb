@@ -6,13 +6,15 @@ class Option < ActiveRecord::Base
     domain = tokens.count == 2 ? tokens.first : "general"
     key = tokens.last
     
-    option = Option.find_by_domain_and_key(domain, key)
-    if option.nil? || option.value.blank?
-      option_name.ends_with?("?") ? false : default
-    elsif option_name.ends_with?("?")
-      return option.value == 't'
-    else
-      return option.value
+    return Rails.cache.fetch("option:#{domain}:#{key}") do    
+      option = Option.find_by_domain_and_key(domain, key)
+      if option.nil? || option.value.blank?
+        return option_name.ends_with?("?") ? false : default
+      elsif option_name.ends_with?("?")
+        return option.value == 't'
+      else
+        return option.value
+      end
     end
   end
   
@@ -28,7 +30,9 @@ class Option < ActiveRecord::Base
     
     option = Option.find_or_create_by_domain_and_key(domain, key)
     option.value = value
-    option.save
+    saved = option.save
+    Rails.cache.delete("option:#{domain}:#{key}") if saved
+    return saved
   end
   
   def self.get_all(domain)
