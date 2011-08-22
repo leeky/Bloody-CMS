@@ -182,11 +182,7 @@ body.posts, body.pages, body.options {
 		}
 		
 		.controls {
-			background-color: #fafafa;
-			border-bottom: 1px solid #ddd;
-			border-top: 1px solid #ddd;
-			padding: 5px;
-			margin-bottom: 20px;
+			margin-top: 20px;
 			text-align: right;
 			margin-top: 4px;
 			
@@ -280,14 +276,15 @@ body.posts, body.pages, body.options {
 			border-bottom: 1px solid #aaa;
 			
 			&.unpublished {
-				background-color: #f2f2f2;
+				background-color: #fafafa;
 				
+				header { margin-top: 10px }
 				div, header, time {	padding: 0px 5px; }
 			}
 			
 			.warning {
-				background-color: #333;
-				color: #fff;
+				background-color: #ccc;
+				color: #666;
 				display: block;
 				padding: 5px;
 				

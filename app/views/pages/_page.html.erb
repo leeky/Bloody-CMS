@@ -10,8 +10,8 @@
 	
 	<% unless root? %><header><%= page.title %></header><% end %>
 	
-	<%= render :partial => "pages/page_controls" if show_nav && admin? %>
-	
 	<div><%= markdown(page.content) %></div>
   
+	<%= render :partial => "pages/page_controls" if show_nav && admin? %>
+
 </article>

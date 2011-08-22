@@ -4,6 +4,8 @@
 <% end %>
 
 <section>
+	<header><%= Settings.get("blog:title") %></header>
+	
 	<%= render :partial => @posts, :locals => {:show_nav => true, :highlight_unpublished => true} %>
 	
 	<%= will_paginate @posts %>

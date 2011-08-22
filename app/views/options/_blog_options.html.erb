@@ -1,4 +1,5 @@
 <%= render :partial => 'input', :locals => {:name => 'blog:enabled?', :label => 'Enable blog module?', :required => false, :info => "The blogging module features a nice rss feed and no comments. Awesome right?" }%>
+<%= render :partial => 'input', :locals => {:name => 'blog:title', :label => 'Blog title', :required => false, :default => "Blog", :info => 'The title for the blog module' }%>
 <%= render :partial => 'input', :locals => {:name => 'blog:in_nav?', :label => 'Show in sidebar?', :required => false }%>
 <%= render :partial => 'input', :locals => {:name => 'blog:sidebar_title', :label => 'Blog sidebar title', :required => false, :default => "blog", :info => 'The title for the blog module in the sidebar' }%>
 <%= render :partial => 'input', :locals => {:name => 'blog:path', :label => 'Custom blog path', :required => false, :default => "blog", :info => 'A custom path for your blog. Leave out any begin or end slashes.' }%>

@@ -6,5 +6,5 @@
 <section>
 	<%= render :partial => @page, :locals => {:show_nav => true, :highlight_unpublished => false} %>
 
-	<%= render :partial => 'posts/recent' if Settings.get("blog:enabled?") && Settings.get("blog:show_recent?") && root?  %>
+	<%= render :partial => 'posts/recent' if Settings.get("blog:enabled?") && Settings.get("blog:show_recent_posts") && root?  %>
 </section>
