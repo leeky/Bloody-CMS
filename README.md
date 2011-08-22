@@ -62,6 +62,7 @@ Boom, you're done. Now you can visit your site's Heroku URL and setup the config
 History 
 -------
 
+* August 23, 2011 - v0.0.6 - Added configuration UI for promoting a user to admin
 * August 22, 2011 - v0.0.5 - Added the last bits for the blog module
 * August 22, 2011 - v0.0.4 - Added memcache support for the options model
 * August 2, 2011 - v0.0.3 - Added installation instructions and made sure it actually works as described
