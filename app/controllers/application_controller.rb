@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
   end
   
   def ensure_one_admin
-    redirect_to "/auth/twitter" if User.admin.count.zero? && Settings.get("installed?") 
+    redirect_to "/auth/twitter" if User.count.zero? && Settings.get("installed?") 
   end
   
   def load_current_user

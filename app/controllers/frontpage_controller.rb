@@ -8,8 +8,6 @@ class FrontpageController < ApplicationController
     
     if admin?
       redirect_to options_path, :alert => "Oops, your home page is missing. Please set a new homepage"
-    else
-      redirect_to "/auth/twitter"
     end
   end
 end

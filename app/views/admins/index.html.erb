@@ -1,0 +1,19 @@
+<% body_classes << 'options' %>
+
+<section>
+	<table>
+		<tr><th>Name</th><th>Is admin?</th><th>Options</th></tr>
+		<% @users.each do |user| %>
+			<tr>
+				<td><%= user.name %></td>
+				<td><%= image_tag("icons/16x16/#{user.is_admin ? "accept" : "delete"}.png") %></td>
+				<td>
+					<%= form_for user, :url => admin_path(user) do |f| %>
+						<%= f.hidden_field :is_admin, :value => !user.is_admin %>
+						<%= f.submit "#{user.is_admin ? "Remove" : "Make"} admin", :confirm => "Are you sure? Make sure to not remove yourself as admin" %>
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+</section>

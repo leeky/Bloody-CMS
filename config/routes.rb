@@ -2,8 +2,11 @@ Bloodycms::Application.routes.draw do
   resources :posts, :path => Settings.get("blog:path", "blog") if Settings.get('blog:enabled?')
   resources :pages, :except => :index
   resources :authentications
+  resources :admins
   
   match "/admin/options" => "options#index", :as => "options"
+  match "/admin/options" => "options#index", :as => "options"
+  
   
   #authentication
   match '/auth/:provider/callback' => 'authentications#create'

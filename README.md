@@ -85,6 +85,10 @@ Roadmap
 * Add memcache layer for the options
 * Add full installation instructions
 
+Disclaimer
+----------
+
+* Simplistica icons by http://dryicons.com/free-icons/preview/simplistica/
 
 
 
