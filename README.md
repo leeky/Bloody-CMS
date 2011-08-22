@@ -53,11 +53,16 @@ And migrate your remote database.
 
     $ heroku rake db:migrate
 
+To speed up you app, add the free memcache add-on on Heroku:
+
+    $ heroku addons:add memcache 
+
 Boom, you're done. Now you can visit your site's Heroku URL and setup the configuration the same way you did as on local setup.
 
 History 
 -------
 
+* August 22, 2011 - v0.0.4 - Added memcache support for the options model
 * August 2, 2011 - v0.0.3 - Added installation instructions and made sure it actually works as described
 * August 2, 2011 - v0.0.2 - Rewritten the configuration of the app to be using the DB and a UI rather than a config YAML file
 
