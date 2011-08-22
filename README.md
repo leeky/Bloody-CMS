@@ -72,7 +72,6 @@ History
 Roadmap
 -------
 
-* Allow admins to promote other users to admins
 * Allow the admin to sorting the pages and elements in the sidebar
 * Add a sponsorship module
 * Add avatars for the twitter authors
@@ -83,8 +82,7 @@ Roadmap
 * Add a links module
 * Add automatic and manual sharing of new posts to social sites 
 * Allow a site to link back to a parent site
-* Add memcache layer for the options
-* Add full installation instructions
+* Add a ticketing module that integrates with Eventbrite
 
 Disclaimer
 ----------
