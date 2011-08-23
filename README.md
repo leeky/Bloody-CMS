@@ -61,7 +61,7 @@ Boom, you're done. Now you can visit your site's Heroku URL and setup the config
 
 History 
 -------
-
+* August 23, 2011 - v0.0.7 - Added Twitter avatars and usernames to blog posts
 * August 23, 2011 - v0.0.6 - Added configuration UI for promoting a user to admin
 * August 22, 2011 - v0.0.5 - Added the last bits for the blog module
 * August 22, 2011 - v0.0.4 - Added memcache support for the options model
@@ -74,15 +74,13 @@ Roadmap
 
 * Allow the admin to sorting the pages and elements in the sidebar
 * Add a sponsorship module
-* Add avatars for the twitter authors
 * Add a commenting module
 * Add a gravatar module for comments
 * Add a map module
-* Add a ticketing module
+* Add a ticketing module that integrates with Eventbrite
 * Add a links module
 * Add automatic and manual sharing of new posts to social sites 
 * Allow a site to link back to a parent site
-* Add a ticketing module that integrates with Eventbrite
 
 Disclaimer
 ----------
