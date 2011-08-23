@@ -15,11 +15,14 @@ class User < ActiveRecord::Base
     if authentication.user.nil?
       user = User.new
       user.is_admin = true if User.admin.count.zero?
-      user.name = auth['user_info']['nickname']
       user.save
       authentication.user = user
       authentication.save
     end
+    
+    authentication.user.name = auth['user_info']['nickname']
+    authentication.user.image = auth['user_info']['image']
+    authentication.user.save
     
     return authentication.user
   end

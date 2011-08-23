@@ -4,5 +4,6 @@
 
 <% if @posts.count > 0 %>
 	<header><%= Settings.get("blog:title") %></header>
+	<br/>
 	<%= render :partial => @posts, :locals => {:show_nav => true, :highlight_unpublished => true} %>
 <% end %>

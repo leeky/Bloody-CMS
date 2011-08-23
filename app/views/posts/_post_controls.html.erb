@@ -1,6 +1,6 @@
 <% post ||= @post %>
 
 <div class='controls'>	
-	<%= link_to '&larr;	Back'.html_safe, posts_path, :class => 'button white medium left' %>
+	<%= link_to '&larr;	Back'.html_safe, posts_path, :class => 'button white medium left' unless root? || request.url == posts_url %>
 	<%= link_to 'Edit', edit_post_path(post), :class => 'button orange medium' %>
 </div>

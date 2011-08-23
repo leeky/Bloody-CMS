@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
   
+  belongs_to :user
+  
   before_validation :slugify
   
   attr_accessible :title, :content, :published_at

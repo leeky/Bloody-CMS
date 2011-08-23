@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110727214741) do
+ActiveRecord::Schema.define(:version => 20110822235958) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20110727214741) do
     t.datetime "updated_at"
     t.string   "sidebar_title"
     t.boolean  "show_in_sidebar"
+    t.integer  "user_id"
   end
 
   create_table "posts", :force => true do |t|
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20110727214741) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "published_at"
+    t.integer  "user_id",      :default => 1
   end
 
   create_table "sessions", :force => true do |t|
@@ -81,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20110727214741) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "auth_token"
+    t.string   "image"
   end
 
 end

@@ -318,11 +318,16 @@ body.posts, body.pages, body.options {
 			header {
 				font-size: 30px;
 				margin-top: 3px;
-				margin-bottom: 15px;
+				margin-bottom: 5px;
 				
 				a {
 					text-decoration: none;
 				}
+			}
+			
+			img.avatar {
+				float: left;
+				margin-right: 20px
 			}
 			
 			time {
