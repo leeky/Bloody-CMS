@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110822235958) do
+ActiveRecord::Schema.define(:version => 20110824004321) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20110822235958) do
     t.string   "signup_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "slug"
   end
 
   create_table "options", :force => true do |t|

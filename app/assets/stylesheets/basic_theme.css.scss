@@ -69,6 +69,11 @@ header img {
 	}
 }
 
+#ui-datepicker-div {
+	font-size: 0.8em;
+}
+
+
 footer {
 	background-color: #fafafa;
 	border-top: 1px solid #ddd;
@@ -123,7 +128,8 @@ aside {
 		&.rss {
 			background-image: url('/assets/feed-icon-14x14.png');
 			background-repeat: no-repeat;
-			background-position: 160px 13px;
+			background-position: center right;
+			padding-right: 20px;
 		}
 	}
 }
@@ -187,7 +193,7 @@ table {
 	}
 }
 
-body.posts, body.pages, body.options {
+body.posts, body.pages, body.options, body.events {
 	section {
 		width: 600px;
 		padding: 20px 10px;
@@ -240,7 +246,12 @@ body.posts, body.pages, body.options {
 			}
 		}
 		
-		form#new_post, form.edit_post, form#new_page, form.edit_page, form#options_form {
+		form#new_post, form.edit_post, form#new_page, form.edit_page, form#options_form, form#new_event, form.edit_event {
+			
+			header {
+				margin: 10px 0px;
+				font-size: 1.6em;
+			}
 			
 			label {
 				font-size: 1.1em;
@@ -271,6 +282,10 @@ body.posts, body.pages, body.options {
 				&.error {
 					border: 1px solid #a00;	
 				}
+				
+				&.datepicker {
+					width: 250px;
+				}
 			}
 			
 			textarea {
@@ -282,8 +297,24 @@ body.posts, body.pages, body.options {
 				font-family: Courier, sans-serif;
 				font-size: 0.8em;
 				border: 1px solid #aaa;
+				
+				&.low {
+					height: 150px;
+				}
 			}
 			
+			.field img {
+				position: relative;
+				top: 8px;
+				margin-left: 5px;
+				
+				&:hover {
+					cursor: pointer
+				}
+			}
+			
+
+
 			.field_with_errors input, .field_with_errors textarea {
 				border: 1px solid #a00;
 			}

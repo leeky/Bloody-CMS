@@ -3,6 +3,7 @@ Bloodycms::Application.routes.draw do
   resources :pages, :except => :index
   resources :authentications
   resources :admins
+  resources :events
   
   match "/admin/options" => "options#index", :as => "options"
   match "/admin/options" => "options#index", :as => "options"

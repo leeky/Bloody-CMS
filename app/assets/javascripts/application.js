@@ -30,4 +30,13 @@ $(document).ready(function(){
 			$('div[data-group='+group+']:not(.toggable)').slideDown();
 		}
 	});
+	
+	$(".datepicker" ).datetimepicker({
+		showOn: "both",
+		buttonImage: "/images/calendar_background.png",
+		buttonImageOnly: true,
+		dateFormat: 'yyyy/mm/dd HH:MM',
+		showButtonPanel: true
+	});
+
 });

@@ -8,9 +8,15 @@
 		<% class_name = params[:controller] == "posts" && class_name.blank? ? 'active' : '' %>
 		<%= link_to Settings.get("blog:sidebar_title"), posts_path, :class => class_name  if show_sidebar_module?('blog') %>
 
+
+		<% class_name = params[:controller] == "events" && class_name.blank? ? 'active' : '' %>
+		<%= link_to Settings.get("events:sidebar_title"), events_path, :class => class_name  if show_sidebar_module?('events') %>
+
+
 		<%= render :partial => 'sidebar_pages', :locals => {:pages => Page.published.in_sidebar} if show_sidebar_module?('pages') %>		
 		
 		<%= link_to 'rss', posts_path(:rss), :class => "rss"  if active_module?('blog') && Settings.get("blog:rss_in_sidebar?") %>
+		<%= link_to "#{Settings.get("events:sidebar_title")} rss", events_path(:rss), :class => "rss"  if active_module?('events') && Settings.get("events:rss_in_sidebar?") %>
 		
 		
 		<% if admin? %>

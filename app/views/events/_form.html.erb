@@ -12,42 +12,61 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_area :title %>
+    <%= f.text_field :title, :placeholder => "Event name" %>
+  </div>
+  <%= render :partial => 'markdown_info' %>
+  <div class="field">
+    <%= f.text_area :description, :placeholder => 'Event description...' %>
+  </div>
+	<% if !@event.new_record? && @event.ended? %>
+	<hr/>
+	<header>Review</header>
+	<%= render :partial => 'markdown_info' %>
+  <div class="field">
+    <%= f.text_area :review, :placeholder => 'Event review...' %>
+  </div>
+	<% end %>
+	<hr/>
+	<header>Venue</header>
+	<div class="field">
+    <%= f.text_field :venue, :placeholder => "Venue name"  %>
+  </div>
+  <%= render :partial => 'markdown_info' %>
+  <div class="field">
+    <%= f.text_area :address, :placeholder => 'Address', :class => 'low' %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.label :start_date %>
+    <%= f.text_field :start_date, :class => 'datepicker', :placeholder => Time.now.to_formatted_s(:db) %>
   </div>
   <div class="field">
-    <%= f.label :review %><br />
-    <%= f.text_area :review %>
+    <%= f.label :end_date %>
+    <%= f.text_field :end_date, :class => 'datepicker', :placeholder => Time.now.to_formatted_s(:db) %>
   </div>
+	<hr/>
+	<header>Eventbrite</header>
   <div class="field">
-    <%= f.label :published_at %><br />
-    <%= f.datetime_select :published_at %>
+    <%= f.text_field :signup_url, :placeholder => 'Signup URL' %>
   </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :start_date %><br />
-    <%= f.datetime_select :start_date %>
-  </div>
-  <div class="field">
-    <%= f.label :end_date %><br />
-    <%= f.datetime_select :end_date %>
-  </div>
-  <div class="field">
-    <%= f.label :venue %><br />
-    <%= f.text_field :venue %>
-  </div>
-  <div class="field">
-    <%= f.label :signup_url %><br />
-    <%= f.text_field :signup_url %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+	<hr/>
+  <div class="controls">
+		<% unless @event.new_record? %>
+	  	<%= link_to '&larr;	Back'.html_safe, @event, :class => "button medium white left" %>
+	  	<%= link_to 'Delete', @event, confirm: 'Are you sure?', method: :delete, :class => 'button gray medium left' %>
+		<% else %>
+			<%= link_to '&larr;	Back'.html_safe, root_url, :class => "button medium white left" %>
+		<% end %>
+
+		<% if @event.new_record? %>
+			<%= f.submit(:class => 'button medium green', :value => 'Save event') %>
+			<%= f.submit(:class => 'button medium orange', :value => 'Publish') %>
+		<% elsif !@event.published? %>
+			<%= f.submit(:class => 'button medium green', :value => 'Update event') %>
+			<%= f.submit(:class => 'button medium orange', :value => 'Publish') %>
+		<% else %>
+			<%= f.submit(:class => 'button medium orange', :value => 'Unpublish') %>
+			<%= f.submit(:class => 'button medium green', :value => 'Update event') %>
+		<% end %>
+
   </div>
 <% end %>
