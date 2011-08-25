@@ -1,0 +1,22 @@
+<% event ||= @event %>
+
+<article class="<%= "unpublished" unless event.published? || !highlight_unpublished %>">
+	<% unless event.published? || !highlight_unpublished %>
+		<span class='warning'>
+				Unpublished 
+				<%= link_to 'Edit', edit_event_path(event), :class => 'button white medium' %>
+		</span>
+	<% end %>
+	
+	<header><%= event.title %></header>
+	
+	<time datetime="<%= event.start_date.strftime("%Y-%m-%dT%T%z") %>" pubdate>
+	  <%= event.date_range %>
+	</time>
+	
+	
+	<div><%= markdown(event.description) %></div>
+  
+	<%= render :partial => "events/event_controls" if admin? %>
+
+</article>

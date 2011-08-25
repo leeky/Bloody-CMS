@@ -1,0 +1,6 @@
+<% event ||= @event %>
+
+<div class='controls'>	
+	<%= link_to '&larr;	Back'.html_safe, root_url, :class => 'button white medium left' unless root?  %>
+	<%= link_to 'Edit', edit_event_path(event), :class => 'button orange medium' %>
+</div>

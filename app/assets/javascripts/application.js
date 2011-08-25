@@ -35,7 +35,7 @@ $(document).ready(function(){
 		showOn: "both",
 		buttonImage: "/images/calendar_background.png",
 		buttonImageOnly: true,
-		dateFormat: 'yyyy/mm/dd HH:MM',
+		dateFormat: 'yyyy-mm-dd HH:MM',
 		showButtonPanel: true
 	});
 
