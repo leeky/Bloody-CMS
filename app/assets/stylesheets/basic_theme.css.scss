@@ -359,7 +359,10 @@ body.posts, body.pages, body.options, body.events {
 			}
 			
 			header {
+				position: relative;
+				top: -5px;
 				font-size: 30px;
+				line-height: 35px;
 				margin-top: 3px;
 				margin-bottom: 5px;
 				
@@ -376,8 +379,10 @@ body.posts, body.pages, body.options, body.events {
 			
 			time {
 				margin-bottom: 10px;
-				font-size: 0.8em;
+				font-size: 12px;
 				display: block;
+				position: relative;
+				top: -12px;
 			}
 			
 			h1 {

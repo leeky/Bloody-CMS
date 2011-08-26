@@ -5,12 +5,14 @@ module ApplicationHelper
   
   def markdown(text)
     options = [:hard_wrap, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]
-    syntax_highlighter(Redcarpet.new(text, *options).to_html).html_safe
+    text = syntax_highlighter(Redcarpet.new(text, *options).to_html)
+    parse_shortcodes(text).html_safe
   end
   
   def safe_markdown(text)
     options = [:hard_wrap, :filter_html, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]
-    syntax_highlighter(Redcarpet.new(text, *options).to_html).html_safe
+    text = syntax_highlighter(Redcarpet.new(text, *options).to_html)
+    parse_shortcodes(text).html_safe
   end
   
   def syntax_highlighter(html)
@@ -45,6 +47,14 @@ module ApplicationHelper
   end
   
   def eventbrite_tickets(id) 
-    "<iframe  src='http://www.eventbrite.com/tickets-external?eid=#{id}&ref=etckt' frameborder='0' height='500px' width='100%' vspace='0' hspace='0' marginheight='5' marginwidth='5' scrolling='auto' allowtransparency='true' id='eventbriteframe'></iframe>".html_safe
+    "<iframe  src='http://www.eventbrite.com/tickets-external?eid=#{id}&ref=etckt' frameborder='0' height='300px' width='100%' vspace='0' hspace='0' marginheight='5' marginwidth='5' scrolling='auto' allowtransparency='true' id='eventbriteframe'></iframe>".html_safe
+  end
+  
+  def parse_shortcodes(text)
+    text.sub(/\[tickets=(.+)\]/) do
+      if event = Event.find_by_slug($1)
+        eventbrite_tickets(event.eventbrite_id)
+      end
+    end
   end
 end
