@@ -61,7 +61,7 @@ Boom, you're done. Now you can visit your site's Heroku URL and setup the config
 
 History 
 -------
-* August 24, 2011 - v0.0.8 - Added event module
+* August 27, 2011 - v0.0.8 - Added event module with tickiting
 * August 23, 2011 - v0.0.7 - Added Twitter avatars and usernames to blog posts
 * August 23, 2011 - v0.0.6 - Added configuration UI for promoting a user to admin
 * August 22, 2011 - v0.0.5 - Added the last bits for the blog module
