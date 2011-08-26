@@ -27,6 +27,9 @@ gem "will_paginate", :git => "https://github.com/JackDanger/will_paginate.git", 
 #form helper
 gem "dynamic_form"
 
+# Used for fetching other pages
+gem "nokogiri"
+
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false

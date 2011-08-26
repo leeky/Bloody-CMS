@@ -1,12 +1,18 @@
+require 'nokogiri'
+require 'open-uri'
+
 class Event < ActiveRecord::Base
   attr_accessible :title, :description, :review, :venue, :address, :start_date, :end_date, :signup_url, :all_day_event
   
   before_validation :slugify
   validates_presence_of :title, :description, :venue, :address, :start_date, :end_date
   validates_uniqueness_of :slug, :message => "^An event with a similar title already exists"
+  before_save :determine_eventbrite_id
   
   scope :published, where("published_at IS NOT NULL")
-  scope :coming_up, order("start_date DESC, end_date ASC")
+  scope :coming_up, where("end_date > ?", Time.now)
+  scope :past, where("end_date < ?", Time.now)
+  scope :by_date, order("start_date ASC, end_date ASC")
   
   def to_param
     "#{slug}"
@@ -15,6 +21,11 @@ class Event < ActiveRecord::Base
   def published?
     !self.published_at.nil?
   end
+  
+  def published_or_created_at
+    self.published_at || self.created_at
+  end
+  
   
   def ended?
     self.end_date < Time.now
@@ -47,6 +58,17 @@ class Event < ActiveRecord::Base
   
   def slugify
     self.slug = self.title.parameterize
+  end
+  
+  def determine_eventbrite_id
+    if self.signup_url.include?("eventbrite.com") && (self.eventbrite_id.nil? || self.signup_url_changed?)
+      doc = Nokogiri::HTML(open(self.signup_url))
+      doc.css('input[name=eid]').each do |input|
+        self.eventbrite_id = input['value']
+      end
+    elsif !self.signup_url.include?("eventbrite.com")
+      self.eventbrite_id = nil
+    end
   end
   
 end

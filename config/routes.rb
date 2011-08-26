@@ -1,9 +1,9 @@
 Bloodycms::Application.routes.draw do
+  resources :events,  :path => Settings.get("events:path", "events") if Settings.get('events:enabled?')
   resources :posts, :path => Settings.get("blog:path", "blog") if Settings.get('blog:enabled?')
   resources :pages, :except => :index
   resources :authentications
   resources :admins
-  resources :events
   
   match "/admin/options" => "options#index", :as => "options"
   match "/admin/options" => "options#index", :as => "options"

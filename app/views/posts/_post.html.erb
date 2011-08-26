@@ -8,12 +8,12 @@
 		</span>
 	<% end %>
 	
-	<%= image_tag(post.user.image, :class => 'avatar') unless post.user.image.nil? %>
+	<%= link_to image_tag(post.user.image, :class => 'avatar'),  "http://twitter.com/#{post.user.name}"  unless post.user.image.nil? %>
 	
 	<header><%= link_to(post.title, post) %></header>
 	
 	<time datetime="<%= post.published_or_created_at.strftime("%Y-%m-%dT%T%z") %>" pubdate>
-	  <%= post.published_or_created_at.strftime("%A %e %B %Y - %R") %> by <%= post.user.name  %>
+	  <%= post.published_or_created_at.strftime("%A %e %B %Y - %R") %> by <%= link_to post.user.name, "http://twitter.com/#{post.user.name}"  %>
 	</time>
 	
 	

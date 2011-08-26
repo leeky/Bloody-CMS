@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110824212243) do
+ActiveRecord::Schema.define(:version => 20110826221955) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20110824212243) do
     t.datetime "updated_at"
     t.text     "slug"
     t.boolean  "all_day_event"
+    t.string   "eventbrite_id"
   end
 
   create_table "options", :force => true do |t|

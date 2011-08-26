@@ -1,6 +1,7 @@
 <% event ||= @event %>
 
-<article class="<%= "unpublished" unless event.published? || !highlight_unpublished %>">
+<article class="<%= "unpublished" unless event.published? || !highlight_unpublished %> <%= "small" if small %>">
+	
 	<% unless event.published? || !highlight_unpublished %>
 		<span class='warning'>
 				Unpublished 
@@ -8,15 +9,26 @@
 		</span>
 	<% end %>
 	
-	<header><%= event.title %></header>
+	<div class='calendar'>
+		<strong><%= event.start_date.strftime("%d") %></strong>
+		<%= event.start_date.strftime("%b").downcase %>
+	</div>
+	
+		
+	<header><%= link_to event.title, event %></header>
 	
 	<time datetime="<%= event.start_date.strftime("%Y-%m-%dT%T%z") %>" pubdate>
 	  <%= event.date_range %>
 	</time>
 	
-	
-	<div><%= markdown(event.description) %></div>
+	<% unless small %>
+		<div><%= markdown(event.description) %></div>
   
-	<%= render :partial => "events/event_controls" if admin? %>
+		<%= render :partial => "events/map", :locals => {:event => event} unless event.address.blank?  %>
+		<%= render :partial => "events/signup", :locals => {:event => event} unless event.started? || event.signup_url.blank? %>
+
+
+		<%= render :partial => "events/event_controls", :locals => {:event => event}  if admin? %>
+	<% end %>
 
 </article>

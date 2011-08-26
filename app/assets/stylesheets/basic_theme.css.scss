@@ -126,7 +126,7 @@ aside {
 		}
 		
 		&.rss {
-			background-image: url('/assets/feed-icon-14x14.png');
+			background-image: url('/assets/icons/16x16/rss.png');
 			background-repeat: no-repeat;
 			background-position: center right;
 			padding-right: 20px;
@@ -205,8 +205,15 @@ body.posts, body.pages, body.options, body.events {
 			font-weight: bold;
 			font-size: 40px;
 			border-bottom: 0px;
-			margin-bottom: 20px;
+			margin-bottom: 40px;
 			padding: 0px;
+			
+			a.light {
+				font-weight: normal;
+				font-size: 30px;
+				color: #888;
+				text-decoration: none;
+			}
 		}
 		
 		.controls {
@@ -335,6 +342,11 @@ body.posts, body.pages, body.options, body.events {
 				div, header, time {	padding: 0px 5px; }
 			}
 			
+			&.small {
+				padding: 0px 0px 0px 0px;
+				border-bottom: none;
+			}
+			
 			.warning {
 				background-color: #ccc;
 				color: #666;
@@ -358,8 +370,9 @@ body.posts, body.pages, body.options, body.events {
 			
 			img.avatar {
 				float: left;
-				margin-right: 20px
+				margin-right: 10px
 			}
+
 			
 			time {
 				margin-bottom: 10px;
@@ -367,20 +380,24 @@ body.posts, body.pages, body.options, body.events {
 				display: block;
 			}
 			
+			h1 {
+				font-weight: bold;
+				font-size: 1.6em;
+				margin-bottom: 10px;
+			}
+			
+			h2 {
+				font-weight: bold;
+				font-size: 1.1em;
+				margin-bottom: 5px;
+			}
+			
+			img.map {
+				float: right;
+			}
+			
 			div {
-				margin-bottom: 20px;
-				
-				h1 {
-					font-weight: bold;
-					font-size: 1.6em;
-					margin-bottom: 10px;
-				}
-				
-				h2 {
-					font-weight: bold;
-					font-size: 1.1em;
-					margin-bottom: 5px;
-				}
+				margin-bottom: 20px;				
 				
 				em { font-style: italic; }
 				strong { font-weight: bold;	}
@@ -415,6 +432,31 @@ body.posts, body.pages, body.options, body.events {
 					background-color: #f5f5f5;
 					padding: 10px;
 					border: 1px solid #d2d2d2;
+				}
+				
+				
+				&.calendar {
+					float: left;
+					background-image: url('/assets/icons/48x48/calendar_background.png');
+					width: 48px;
+					height: 48px;
+					margin-bottom: 0px;
+					margin-right: 10px;
+					text-align: center;
+					color: #a00;
+					font-size: 12px;
+					line-height: 12px;
+					font-weight: bold;
+					
+					
+					strong {
+						color: #000;
+						display: block;
+						font-size: 18px;
+						line-height: 14px;
+						margin-top: 19px;
+						margin-bottom: 0px;
+					}
 				}
 			}
 			

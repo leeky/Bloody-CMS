@@ -1,8 +1,7 @@
 xml.instruct! :xml, :version => "1.0" 
 xml.rss :version => "2.0" do
   xml.channel do
-    xml.title "Articles"
-    xml.description "Lots of articles"
+    xml.title Settings.get("blog:title")
     xml.link posts_url(:rss)
     
     for post in @posts

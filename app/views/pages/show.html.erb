@@ -5,6 +5,6 @@
 
 <section>
 	<%= render :partial => @page, :locals => {:show_nav => true, :highlight_unpublished => false} %>
-
+	<%= render :partial => 'events/upcoming' if Settings.get("events:enabled?") && Settings.get("events:show_upcoming_events") && root?  %>
 	<%= render :partial => 'posts/recent' if Settings.get("blog:enabled?") && Settings.get("blog:show_recent_posts") && root?  %>
 </section>

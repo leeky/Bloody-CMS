@@ -38,5 +38,6 @@ $(document).ready(function(){
 		dateFormat: 'yyyy-mm-dd HH:MM',
 		showButtonPanel: true
 	});
+	
 
 });

@@ -36,4 +36,15 @@ module ApplicationHelper
   def root?
     request.url == root_url
   end
+  
+  def map(address)
+    address = address.gsub("\n", " ")
+    image_url = "http://maps.googleapis.com/maps/api/staticmap?center=#{address}&markers=#{address}&zoom=14&size=350x100&sensor=false"
+    link_url = "http://maps.google.co.uk/maps?q=#{address}"
+    link_to image_tag(image_url, :class => "map"), link_url, :target => "_blank"
+  end
+  
+  def eventbrite_tickets(id) 
+    "<iframe  src='http://www.eventbrite.com/tickets-external?eid=#{id}&ref=etckt' frameborder='0' height='500px' width='100%' vspace='0' hspace='0' marginheight='5' marginwidth='5' scrolling='auto' allowtransparency='true' id='eventbriteframe'></iframe>".html_safe
+  end
 end
