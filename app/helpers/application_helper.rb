@@ -53,7 +53,7 @@ module ApplicationHelper
   def parse_shortcodes(text)
     text.sub(/\[tickets=(.+)\]/) do
       if event = Event.find_by_slug($1)
-        eventbrite_tickets(event.eventbrite_id)
+        eventbrite_tickets(event.eventbrite_id) if event.eventbrite_id
       end
     end
   end
