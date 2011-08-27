@@ -13,15 +13,14 @@
 		<%= link_to Settings.get("events:sidebar_title"), events_path, :class => class_name  if show_sidebar_module?('events') %>
 
 
-		<%= render :partial => 'sidebar_pages', :locals => {:pages => Page.published.in_sidebar} if show_sidebar_module?('pages') %>		
+		<% pages = admin? ? Page.order("sidebar_title ASC") : Page.published.in_sidebar.order("sidebar_title ASC") %>
+		<%= render :partial => 'sidebar_pages', :locals => {:pages => pages} if show_sidebar_module?('pages') %>		
 		
 		<%= link_to 'rss', posts_path(:rss), :class => "rss"  if active_module?('blog') && Settings.get("blog:rss_in_sidebar?") %>
 		<%= link_to "#{Settings.get("events:sidebar_title")} rss", events_path(:rss), :class => "rss"  if active_module?('events') && Settings.get("events:rss_in_sidebar?") %>
 		
 		
 		<% if admin? %>
-			<% if Page.unpublished_or_hidden.count > 0 %><hr/><% end %>
-			<%= render :partial => 'sidebar_pages', :locals => {:pages => Page.unpublished_or_hidden}  %>
 			<hr/>
 			<%= link_to "configuration", options_path, :class => active_class_for_path("active", options_path) %>
 			<%= link_to "administrators", admins_path, :class => active_class_for_path("active", admins_path) %>
