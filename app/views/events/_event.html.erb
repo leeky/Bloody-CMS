@@ -22,12 +22,12 @@
 	</time>
 	
 	<% unless small %>
-		<div><%= markdown(event.description) %></div>
-  
-		<%= render :partial => "events/map", :locals => {:event => event} unless event.address.blank?  %>
+		<%= render :partial => "events/description", :locals => {:event => event} unless event.ended? && !event.review.blank?  %>
+		<%= render :partial => "events/review", :locals => {:event => event} if event.ended? && !event.review.blank?  %>
+	  
+		<%= render :partial => "events/map", :locals => {:event => event} unless event.address.blank? || event.ended?  %>
 		<%= render :partial => "events/signup", :locals => {:event => event} unless event.started? || event.signup_url.blank? %>
-
-
+		
 		<%= render :partial => "events/event_controls", :locals => {:event => event}  if admin? %>
 	<% end %>
 

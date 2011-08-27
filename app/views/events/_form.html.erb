@@ -31,24 +31,31 @@
 	<div class="field">
     <%= f.text_field :venue, :placeholder => "Venue name"  %>
   </div>
-  <%= render :partial => 'markdown_info' %>
+  <%= render :partial => 'markdown_info' %><br/>
+	<span class='info'>
+		This address will be turned into a Google map
+	</span>
   <div class="field">
     <%= f.text_area :address, :placeholder => 'Address', :class => 'low' %>
   </div>
 	<hr/>
 	<header>Date</header>
 
-  <div class="field">
-    <%= f.text_field :end_date, :class => 'datepicker', :placeholder => "Start date", :value => (@event.end_date.blank? ? '' : @event.end_date.strftime('%Y-%m-%d %H:%M')) %>
-  </div>
+
   <div class="field">
     <%= f.text_field :start_date, :class => 'datepicker', :placeholder => "End date", :value => (@event.start_date.blank? ? '' : @event.start_date.strftime('%Y-%m-%d %H:%M')) %>
+  </div>
+  <div class="field">
+    <%= f.text_field :end_date, :class => 'datepicker', :placeholder => "Start date", :value => (@event.end_date.blank? ? '' : @event.end_date.strftime('%Y-%m-%d %H:%M')) %>
   </div>
   <div class="field">
     <%= f.check_box :all_day_event %> <%= f.label :all_day_event, "All day event (hide times)", :class => 'inline' %>
   </div>
 	<hr/>
-	<header>Eventbrite</header>
+	<header>Signup url</header>
+	<span class='info'>
+		If you provide an <a href='http://eventbrite.com'>Eventbrite</a> URL here it will integrate the ticketing for you.
+	</span>
   <div class="field">
     <%= f.text_field :signup_url, :placeholder => 'Signup URL' %>
   </div>

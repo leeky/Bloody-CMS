@@ -1,7 +1,8 @@
 <% pages.each do |page| %>
 	<% class_name = params[:controller] == 'pages' && params[:id] == page.slug ? 'active' : '' %>
 	<% 
-		name = page.sidebar_title_or_title 
-		name += " (unpublished)" if !page.published? %>
-	<%= link_to name, root_page_path(page), :class => class_name  %>
+		appendix = ""
+		appendix += " <span>| draft</span>" if !page.published?
+		appendix += " <span>| hidden</span>" if page.hidden? %>
+	<%= link_to ("#{page.sidebar_title_or_title}"+appendix.html_safe).html_safe, root_page_path(page), :class => class_name  %>
 <% end %>

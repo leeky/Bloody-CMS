@@ -30,6 +30,9 @@ gem "dynamic_form"
 # Used for fetching other pages
 gem "nokogiri"
 
+#validation
+gem 'date_validator'
+
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false

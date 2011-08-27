@@ -1,5 +1,9 @@
-<h1>Tickets:</h1>
+<h1>Tickets</h1>
 
 <div>
-	<%= eventbrite_tickets(event.eventbrite_id) if event.eventbrite_id %>
+	<% if event.eventbrite_id %>
+		<%= eventbrite_tickets(event.eventbrite_id)  %>
+	<% else %>
+		<%= link_to event.signup_url,event.signup_url %>
+	<% end %>
 </div>

@@ -10,6 +10,7 @@ class Page < ActiveRecord::Base
   # scopes
   scope :published, where("published_at IS NOT NULL")
   scope :unpublished, where("published_at IS NULL")
+  scope :unpublished_or_hidden, where("published_at IS NULL OR show_in_sidebar = ?", false)
   scope :in_sidebar, where("show_in_sidebar = ?", true)
   
   
@@ -23,6 +24,10 @@ class Page < ActiveRecord::Base
   
   def in_sidebar?
     self.show_in_sidebar
+  end
+  
+  def hidden?
+    !self.show_in_sidebar
   end
   
   def published_or_created_at

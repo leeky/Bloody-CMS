@@ -131,6 +131,11 @@ aside {
 			background-position: center right;
 			padding-right: 20px;
 		}
+		
+		span {
+			font-size: 11px;
+			color: #888;
+		}
 	}
 }
 
@@ -397,9 +402,7 @@ body.posts, body.pages, body.options, body.events {
 				margin-bottom: 5px;
 			}
 			
-			img.map {
-				float: right;
-			}
+		
 			
 			div {
 				margin-bottom: 20px;				
@@ -439,6 +442,9 @@ body.posts, body.pages, body.options, body.events {
 					border: 1px solid #d2d2d2;
 				}
 				
+				&.block {
+					overflow: auto;
+				}
 				
 				&.calendar {
 					float: left;

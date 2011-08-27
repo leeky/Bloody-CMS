@@ -20,8 +20,8 @@
 		
 		
 		<% if admin? %>
-			<% if Page.unpublished.count > 0 %><hr/><% end %>
-			<%= render :partial => 'sidebar_pages', :locals => {:pages => Page.unpublished}  %>
+			<% if Page.unpublished_or_hidden.count > 0 %><hr/><% end %>
+			<%= render :partial => 'sidebar_pages', :locals => {:pages => Page.unpublished_or_hidden}  %>
 			<hr/>
 			<%= link_to "configuration", options_path, :class => active_class_for_path("active", options_path) %>
 			<%= link_to "administrators", admins_path, :class => active_class_for_path("active", admins_path) %>
