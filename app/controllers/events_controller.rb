@@ -13,7 +13,7 @@ class EventsController < ApplicationController
     if admin?
       @events = events.paginate :page => params[:page], :per_page => 5
     else
-      @events = eventst.published.paginate :page => params[:page], :per_page => 5
+      @events = events.published.paginate :page => params[:page], :per_page => 5
     end
     
 

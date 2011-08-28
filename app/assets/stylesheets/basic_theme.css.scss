@@ -198,6 +198,25 @@ aside {
 			}
 		
 		}
+		
+		&.sponsors {
+			width: 600px;
+			position: static;
+			margin: 0px auto;
+			margin-top: 20px;
+			float: none;
+			border: 0px;
+			background-color: #fff;
+			padding: 5px 10px 5px 10px;
+			text-align: left;
+			
+			a {
+				border: 0px;
+				&.title {
+					display: block;
+				}
+			}
+		}
 	}
 }
 

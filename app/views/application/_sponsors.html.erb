@@ -1,5 +1,5 @@
 <aside class='sponsors'>
-	<%= link_to Settings::get("sponsors:sidebar_title") , sponsors_path %>
+	<%= link_to Settings::get("sponsors:sidebar_title") , sponsors_path, :class => 'title' %>
 	<% Sponsor.all.shuffle.each do |sponsor| %>
 		<%= link_to image_tag(sponsor.image_for_size("200x200")), sponsor.url, :class => 'sponsor' %>
 	<% end %>
