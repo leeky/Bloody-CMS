@@ -33,6 +33,9 @@ gem "nokogiri"
 #validation
 gem 'date_validator'
 
+#image conversion
+gem 'mini_magick'
+
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false

@@ -1,13 +1,13 @@
 Bloodycms::Application.routes.draw do
+  resources :sponsors, :path => Settings.get("sponsors:path", "sponsors") if Settings.get('sponsors:enabled?')
+  match "/sponsors/image/:size/:id.png" => "sponsors#image" if Settings.get('sponsors:enabled?')
   resources :events,  :path => Settings.get("events:path", "events") if Settings.get('events:enabled?')
   resources :posts, :path => Settings.get("blog:path", "blog") if Settings.get('blog:enabled?')
   resources :pages, :except => :index
   resources :authentications
   resources :admins
   
-  match "/admin/options" => "options#index", :as => "options"
-  match "/admin/options" => "options#index", :as => "options"
-  
+  match "/options" => "options#index", :as => "options"  
   
   #authentication
   match '/auth/:provider/callback' => 'authentications#create'

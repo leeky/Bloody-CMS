@@ -56,6 +56,14 @@ header img {
 	
 	img {
 		margin-top: 5px;
+		
+		&.avatar {
+			position: relative;
+			margin-top: 0px;
+			margin-right: 3px;
+			top: 5px;
+			border-radius: 3px;
+		}
 	}
 	
 	ul {
@@ -137,6 +145,19 @@ aside {
 			color: #888;
 		}
 	}
+	
+	&.sponsors {
+		text-align: left;
+		
+		a.sponsor {
+			background-color: 0px;
+			padding: 0px;
+		}
+		
+		position: absolute;
+		left: 50%;
+		margin-left: 330px;
+	}
 }
 
 
@@ -149,31 +170,31 @@ aside {
 		margin-top: 20px;
 		float: none;
 		background-color: #fafafa;
-		border-bottom: 1px solid #ddd;
-		border-top: 1px solid #ddd;
+		padding: 5px 10px 5px 10px;
 		text-align: left;
-		border-right: 1px solid #ddd;
 		
 		hr {
 			display: none;
 		}
 		
 		a {
-			margin-right: 10px;
+			margin-right: 20px;
 			font-weight: bold;
-			border-bottom: 0px;
 			display: inline-block;
-			padding: 6px 0px;
+			padding: 3px 0px 3px 0px !important;
 			font-size: 1.0em;
 			line-height: 1em;
-			border-left: 1px solid #ddd;
 			padding-left: 15px;
+			margin-bottom: 10px;
 
 		
 			&.active { 
-				color: #000;	
+				color: #a00;	
 				background-color: transparent;
-				border-bottom: 0px;
+			}
+			
+			&.rss {
+				padding: 3px 20px 3px 0px !important;
 			}
 		
 		}
@@ -198,7 +219,7 @@ table {
 	}
 }
 
-body.posts, body.pages, body.options, body.events {
+body.posts, body.pages, body.options, body.events, body.sponsors {
 	section {
 		width: 600px;
 		padding: 20px 10px;
@@ -258,7 +279,7 @@ body.posts, body.pages, body.options, body.events {
 			}
 		}
 		
-		form#new_post, form.edit_post, form#new_page, form.edit_page, form#options_form, form#new_event, form.edit_event {
+		form#new_post, form.edit_post, form#new_page, form.edit_page, form#options_form, form#new_event, form.edit_event, form#new_sponsor, form.edit_sponsor {
 			
 			header {
 				margin: 10px 0px;

@@ -17,7 +17,9 @@
 <%= render :partial => 'controls_header' %>
 <%= render :partial => 'header' %>
 <%= render :partial => 'flash_messages' %>
-<%= render :partial => 'sidebar' %>
+<%= render :partial => 'navigation' %>
+<%= render :partial => 'sponsors' if Settings.get('sponsors:enabled?') %>
+
 <%= yield %>
 <%= render :partial => 'footer' %>
 

@@ -1,0 +1,15 @@
+<% sponsor ||= @sponsor %>
+
+<article>
+	<header>
+		<%= link_to sponsor.name, sponsor %><br/>
+		<%= link_to sponsor.url, sponsor.url, :class => 'light' %>
+	</header>
+	
+	<%= link_to image_tag(sponsor.image_for_size("600x100")), sponsor.url unless sponsor.image.blank?  %>
+	
+	<div><%= markdown(sponsor.description) %></div>
+	
+	<%= render :partial => "sponsors/sponsor_controls", :locals => {:sponsor => sponsor} if show_nav && admin? %>
+  
+</article>

@@ -1,0 +1,6 @@
+<% sponsor ||= @sponsor %>
+
+<div class='controls'>	
+	<%= link_to '&larr;	Back'.html_safe, sponsors_path, :class => 'button white medium left' unless root? || request.url == sponsors_url %>
+	<%= link_to 'Edit', edit_sponsor_path(sponsor), :class => 'button orange medium' %>
+</div>

@@ -1,0 +1,7 @@
+<% content_for :title do %>
+	<%= "#{@sponsor.name} | " unless root? %>
+<% end %>
+
+<section>
+	<%= render :partial => @sponsor, :locals => {:show_nav => true} %>
+</section>

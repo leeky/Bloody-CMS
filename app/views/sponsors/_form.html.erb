@@ -1,0 +1,48 @@
+<%= form_for(@sponsor) do |f| %>
+  <% if @sponsor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sponsor.errors.count, "error") %> prohibited this sponsor from being saved:</h2>
+
+      <ul>
+      <% @sponsor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :name, :placeholder => "Name" %>
+  </div>
+  <div class="field">
+	  <%= render :partial => 'markdown_info' %><br/>
+    <%= f.text_area :description, :placeholder => "Sponsor description..." %>
+  </div>
+	<hr/>
+  <div class="field">
+    <%= f.label :url, "Sponsor URL" %>
+    <%= f.text_field :url, :placeholder => "http://" %>
+  </div>
+  <div class="field">
+    <%= f.label :image, "Sponsor image URL" %>
+		<span class='info'>
+		  URL for a large image of the sponsor. Will be automatically resized to be used on pages and in the sidebar.
+		</span>
+    <%= f.text_field :image, :placeholder => "http://" %>
+  </div>
+	<hr/>
+  <div class="controls">
+		<% unless @sponsor.new_record? %>
+	  	<%= link_to '&larr;	Back'.html_safe, @sponsor, :class => "button medium white left" %>
+	  	<%= link_to 'Delete', @sponsor, confirm: 'Are you sure?', method: :delete, :class => 'button gray medium left' %>
+		<% else %>
+			<%= link_to '&larr;	Back'.html_safe, sponsors_url, :class => "button medium white left" %>
+		<% end %>
+
+		<% if @sponsor.new_record? %>
+			<%= f.submit(:class => 'button medium green', :value => 'Create sponsor') %>
+		<% else %>
+			<%= f.submit(:class => 'button medium green', :value => 'Update sponsor') %>
+		<% end %>
+  </div>
+<% end %>

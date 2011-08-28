@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   end
   
   def ensure_installed
-    redirect_to "/admin/options" unless Settings.get("installed?") 
+    redirect_to "/options" unless Settings.get("installed?") 
   end
   
   def ensure_one_admin

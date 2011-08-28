@@ -1,7 +1,7 @@
 <%= render :partial => 'input', :locals => {:name => 'events:enabled?', :label => 'Enable events module?', :required => false, :info => "The events module allows you to list your events and integrate ticketing." }%>
 <%= render :partial => 'input', :locals => {:name => 'events:title', :label => 'Events title', :required => false, :default => "Events", :info => 'The title for the events module' }%>
 <%= render :partial => 'input', :locals => {:name => 'events:in_nav?', :label => 'Show in sidebar?', :required => false }%>
-<%= render :partial => 'input', :locals => {:name => 'events:sidebar_title', :label => 'Blog sidebar title', :required => false, :default => "events", :info => 'The title for the events module in the sidebar' }%>
+<%= render :partial => 'input', :locals => {:name => 'events:sidebar_title', :label => 'Events sidebar title', :required => false, :default => "events", :info => 'The title for the events module in the sidebar' }%>
 <%= render :partial => 'input', :locals => {:name => 'events:path', :label => 'Custom events path', :required => false, :default => "events", :info => 'A custom path for your events page. Leave out any begin or end slashes.' }%>
 <%= render :partial => 'input', :locals => {:name => 'events:rss_in_sidebar?', :label => 'Show the RSS feed in the sidebar?', :required => false }%>
 <%= render :partial => 'select', :locals => {:name => 'events:show_upcoming_events', :label => 'Show upcoming events on the frontpage?', :info => "This will show the upcoming on the frontpage", :options => {'0' => 'None', '1' => 'Only the next one', '2' => 'The next two', '3' => 'The next three'}, :required => false }%>

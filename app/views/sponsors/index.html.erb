@@ -1,0 +1,14 @@
+<section>
+	<header><%= Settings.get("sponsors:title") %></header>
+  <% if admin? %>
+		<div class="controls">
+			<%= link_to 'Add a Sponsor', new_sponsor_path, :class => "button medium green" %>
+		</div>
+	<% end %>
+	
+	<% @sponsors.each do |sponsor| %>
+		<%= render :partial => sponsor, :locals => {:show_nav => true} %>
+	<% end %>
+
+
+</section>

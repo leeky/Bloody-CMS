@@ -1,0 +1,6 @@
+<%= render :partial => 'input', :locals => {:name => 'sponsors:enabled?', :label => 'Enable sponsors module?', :required => false, :info => "The sponsors module allows you to list your sponsors on a page and in the sidebar" }%>
+<%= render :partial => 'input', :locals => {:name => 'sponsors:title', :label => 'Sponsors title', :required => false, :default => "Sponsors", :info => 'The title for the sponsors module' }%>
+<%= render :partial => 'input', :locals => {:name => 'sponsors:in_nav?', :label => 'Show sponsors page in sidebar?', :required => false }%>
+<%= render :partial => 'input', :locals => {:name => 'sponsors:sidebar_title', :label => 'Sponsors sidebar title', :required => false, :default => "sponsors", :info => 'The title for the sponsors module in the sidebar' }%>
+<%= render :partial => 'input', :locals => {:name => 'sponsors:path', :label => 'Custom sponsors path', :required => false, :default => "sponsors", :info => 'A custom path for your sponsors page. Leave out any begin or end slashes.' }%>
+<%= render :partial => 'input', :locals => {:name => 'sponsors:show_images_in_sidebar?', :label => 'Show sponsors images in the sidebar?', :required => false }%>
