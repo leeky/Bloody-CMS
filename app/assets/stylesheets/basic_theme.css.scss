@@ -521,6 +521,24 @@ body.posts, body.pages, body.options, body.events, body.sponsors {
 						margin-bottom: 0px;
 					}
 				}
+				
+				form {
+					input[type=text], input[type=password] {
+						color: #222;
+						background-color: #fafafa;
+						padding: 5px 5px;
+						font-size: 1.2em;
+						border: 1px solid #aaa;
+
+						&.error {
+							border: 1px solid #a00;	
+						}
+
+						&.datepicker {
+							width: 200px;
+						}
+					}
+				}
 			}
 			
 		}
