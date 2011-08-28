@@ -18,6 +18,10 @@
   <div class="field">
     <%= f.text_area :description, :placeholder => 'Event description...' %>
   </div>
+  <div class="field">
+		<%= f.label :url, "Optional event URL" %>
+    <%= f.text_field :url, :placeholder => "http://" %>
+  </div>
 	<% if !@event.new_record? && @event.ended? %>
 	<hr/>
 	<header>Review</header>

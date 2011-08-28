@@ -15,8 +15,10 @@
 	</div>
 	
 		
-	<header><%= link_to event.title, event %></header>
-	
+	<header>
+		<%= link_to event.title, event %>
+		<% unless event.url.blank? || small %><%= link_to event.url, event.url, :class => "small" %><% end %>
+	</header>
 	<time datetime="<%= event.start_date.strftime("%Y-%m-%dT%T%z") %>" pubdate>
 	  <%= event.date_range %>
 	</time>
@@ -25,7 +27,7 @@
 		<%= render :partial => "events/description", :locals => {:event => event} unless event.ended? && !event.review.blank?  %>
 		<%= render :partial => "events/review", :locals => {:event => event} if event.ended? && !event.review.blank?  %>
 	  
-		<%= render :partial => "events/map", :locals => {:event => event} unless event.address.blank? || event.ended?  %>
+		<%= render :partial => "events/map", :locals => {:event => event} unless event.address.blank?  %>
 		<%= render :partial => "events/signup", :locals => {:event => event} unless event.started? || event.signup_url.blank? %>
 		
 		<%= render :partial => "events/event_controls", :locals => {:event => event}  if admin? %>

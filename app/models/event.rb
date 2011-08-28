@@ -3,13 +3,14 @@ require 'open-uri'
 require 'url_validator'
 
 class Event < ActiveRecord::Base
-  attr_accessible :title, :description, :review, :venue, :address, :start_date, :end_date, :signup_url, :all_day_event
+  attr_accessible :title, :description, :review, :venue, :address, :start_date, :end_date, :signup_url, :all_day_event, :url
   
   before_validation :slugify
   validates_presence_of :title, :description, :venue, :address, :start_date, :end_date
   validates_uniqueness_of :slug, :message => "^An event with a similar title already exists"
   validates :start_date, :date => {:before_or_equal_to => :end_date}
   validates :signup_url, :url => true, :allow_blank => true
+  validates :url, :url => true, :allow_blank => true
   
   before_save :determine_eventbrite_id
   

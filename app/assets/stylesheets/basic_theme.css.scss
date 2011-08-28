@@ -259,6 +259,7 @@ body.posts, body.pages, body.options, body.events, body.sponsors {
 				color: #888;
 				text-decoration: none;
 			}
+
 		}
 		
 		.controls {
@@ -413,6 +414,17 @@ body.posts, body.pages, body.options, body.events, body.sponsors {
 				
 				a {
 					text-decoration: none;
+					display: block;
+				}
+				
+				a.small {
+					line-height: 15px;
+					font-size: 15px;
+					padding: 0px;
+					margin: 0px !important;
+					font-weight: bold;
+					color: #888;
+					text-decoration: none;
 				}
 			}
 			
@@ -491,7 +503,7 @@ body.posts, body.pages, body.options, body.events, body.sponsors {
 					background-image: url('/assets/icons/48x48/calendar_background.png');
 					width: 48px;
 					height: 48px;
-					margin-bottom: 0px;
+					margin-bottom: 10px;
 					margin-right: 10px;
 					text-align: center;
 					color: #a00;
