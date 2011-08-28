@@ -10,7 +10,8 @@
 	<%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" %>
 	<%= javascript_include_tag "jquery.ui.datetimepicker.min.js" %>
 	<%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/smoothness/jquery-ui.css" %>
-	<%= content_tag :link, nil, :rel => 'alternate', :type => 'application/rss+xm', :title => 'RSS', :href => posts_url(:rss) if Settings.get('blog:enabled?') %>
+	<%= content_tag :link, nil, :rel => 'alternate', :type => 'application/rss+xm', :title => "#{Settings.get('blog:title')} RSS", :href => posts_url(:rss) if Settings.get('blog:enabled?') %>
+	<%= content_tag :link, nil, :rel => 'alternate', :type => 'application/rss+xm', :title => "#{Settings.get('events:title')} RSS", :href => events_url(:rss) if Settings.get('events:enabled?') %>
 </head>
 <body class="<%= body_classes.join(' ') %>">
 	
