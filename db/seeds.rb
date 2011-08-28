@@ -28,3 +28,4 @@ Option.set('blog:enabled?', false)
 Option.set('blog:path', "blog")
 
 
+

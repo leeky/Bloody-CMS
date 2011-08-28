@@ -1,5 +1,5 @@
 <footer>
 		Powered by <a href='https://bloodysoftware.com/cms'>Bloody CMS</a>
-		<%= "|" if Settings.get("footer:text") %>
-		<%= markdown(Settings.get("footer:text"))  %>
+		<%= "|" if Settings.get("footer:text")  %>
+		<%= markdown(Settings.get("footer:text")) if Settings.get("footer:text")   %>
 </footer>

@@ -8,7 +8,7 @@ class EventsController < ApplicationController
     unless params[:past]
       events = Event.coming_up.by_date
     else
-      events = Event.past.by_date
+      events = Event.past
     end
     if admin?
       @events = events.paginate :page => params[:page], :per_page => 5

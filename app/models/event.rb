@@ -15,7 +15,7 @@ class Event < ActiveRecord::Base
   
   scope :published, where("published_at IS NOT NULL")
   scope :coming_up, where("end_date > ?", Time.now)
-  scope :past, where("end_date < ?", Time.now)
+  scope :past, where("end_date < ?", Time.now).order("start_date DESC, end_date DESC")
   scope :by_date, order("start_date ASC, end_date ASC")
   
   def to_param
