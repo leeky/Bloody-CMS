@@ -1,6 +1,6 @@
 <% 
 	events = admin? ? Event : Event.published
-	@events = events.coming_up.by_date.limit(Settings.get("event:show_upcoming_events")) %>
+	@events = events.coming_up.by_date.limit(Settings.get("events:show_upcoming_events")) %>
 
 <% if @events.count > 0 %>
 	<header>Upcoming <%= Settings.get("events:title") %></header>
