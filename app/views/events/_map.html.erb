@@ -1,7 +1,6 @@
-<h1>Venue</h1>
+<h1><%= event.venue %></h1>
 
 <div class='block'>
-	<h2><%= event.venue %></h2>
+	<span class='address'><%= markdown(event.address) %></span>
 	<%= map(event.address) %>
-	<%= markdown(event.address) %>
 </div>

@@ -16,7 +16,8 @@
 	
 		
 	<header>
-		<%= link_to event.title, event %>
+		<% class_name = event.ended? ? "faded" : "" %>
+		<%= link_to event.title, event, :class => class_name %>
 		<% unless event.url.blank? || small %><%= link_to event.url, event.url, :class => "small" %><% end %>
 	</header>
 	<time datetime="<%= event.start_date.strftime("%Y-%m-%dT%T%z") %>" pubdate>

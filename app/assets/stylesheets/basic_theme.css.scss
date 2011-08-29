@@ -426,6 +426,10 @@ body.posts, body.pages, body.options, body.events, body.sponsors {
 					color: #888;
 					text-decoration: none;
 				}
+				
+				a.faded {
+					color: #888;
+				}
 			}
 			
 			img.avatar {
@@ -496,6 +500,20 @@ body.posts, body.pages, body.options, body.events, body.sponsors {
 				
 				&.block {
 					overflow: auto;
+				}
+				
+				.address {
+					float: left;
+					background-color: #eee;
+					color: #555;
+					width: 160px;
+					height: 80px;
+					font-size: 15px;
+					line-height: 20px;
+					font-weight: bold;
+					padding: 10px 20px;
+					vertical-align:middle;
+					
 				}
 				
 				&.calendar {

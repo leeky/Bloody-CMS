@@ -1,19 +1,17 @@
 <section>
 	
-	<% if params[:past] %>
-		<header>
-			<%= "Past #{Settings.get("events:title")}" %> | 
-			<%= link_to  "Upcoming #{Settings.get("events:title")}", events_path, :class => 'light' %> 
-		</header>
-	<% else %>
-		<header>
-			<%= Settings.get("events:title") %> |
-			<%= link_to "Past #{Settings.get("events:title")}", "/events?past=true", :class => 'light' if Event.published.past.count > 0 %>
-		</header>
+	<header>
+		<%= @events.first.ended? ? "Past" : "Upcoming" %> <%= Settings.get("events:title").downcase %>
+	</header>
+	
+	<% past = false %>
+	<% @events.each do |event| %>
+		<% if event.ended? && !past %>
+			<% past = true %>
+			<header>Past <%= Settings.get("events:title").downcase %></header>
+		<% end %>
+		<%= render :partial => event, :locals => {:show_nav => true, :highlight_unpublished => true, :small => true} %>
 	<% end %>
-	
-	<%= render :partial => @events, :locals => {:show_nav => true, :highlight_unpublished => true, :small => true} %>
-	
 	<%= will_paginate @events %>
 
 </section>

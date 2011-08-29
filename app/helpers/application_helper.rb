@@ -41,7 +41,7 @@ module ApplicationHelper
   
   def map(address)
     address = address.gsub("\n", " ")
-    image_url = "http://maps.googleapis.com/maps/api/staticmap?center=#{address}&markers=#{address}&zoom=14&size=600x100&sensor=false"
+    image_url = "http://maps.googleapis.com/maps/api/staticmap?center=#{address}&markers=#{address}&zoom=14&size=400x100&sensor=false"
     link_url = "http://maps.google.co.uk/maps?q=#{address}"
     link_to image_tag(image_url, :class => "map"), link_url, :target => "_blank"
   end

@@ -5,11 +5,8 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    unless params[:past]
-      events = Event.coming_up.by_date
-    else
-      events = Event.past
-    end
+    events = Event.by_date_desc
+    
     if admin?
       @events = events.paginate :page => params[:page], :per_page => 5
     else
