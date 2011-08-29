@@ -6,7 +6,7 @@
 	
 	<% past = false %>
 	<% @events.each do |event| %>
-		<% if event.ended? && !past %>
+		<% if event.ended? && !past && !@events.first.ended?  %>
 			<% past = true %>
 			<header>Past <%= Settings.get("events:title").downcase %></header>
 		<% end %>
