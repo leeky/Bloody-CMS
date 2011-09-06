@@ -1,10 +1,10 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc6'
+gem 'rails', '3.1.0'
 gem 'sqlite3'
 
 # Asset template engines
-gem 'sass-rails', "~> 3.1.0.rc"
+gem 'sass-rails', "~> 3.1.0"
 gem 'coffee-script'
 gem 'uglifier'
 
@@ -22,7 +22,7 @@ gem 'nokogiri'
 gem 'dalli'
 
 #pagination
-gem "will_paginate", :git => "https://github.com/JackDanger/will_paginate.git", :branch => 'rails3.1'
+gem "will_paginate", '~> 3.0'
 
 #form helper
 gem "dynamic_form"

@@ -6,29 +6,33 @@ BLoody CMS is a very simple CMS optimised for event organisers written in Rails 
 Simple installation instructions
 --------------------------------
 
-Clone the git repository.
+Clone the git repository:
 
     $ git clone git://github.com/cbetta/Bloody-CMS.git
     
-Run bundler to install all gems.
+Run bundler to install all gems:
 
     $ bundle install --without=production
 
-Copy a new database.yml file.
+Copy a new database.yml file:
 
     $ cp config/database.yml.example config/database.yml
 
-Run your database migrations .
+Run your database migrations:
 
-    $ rake db:migrate
+    $ rake db:migrate       
+    
+Load default settings:
+    
+    $ rake db:seed
 
-Run the rails server.
+Run the rails server:
 
     $ rails server
 
 Now you can visit http://127.0.0.1:3000 and fill in your site name and Twitter authentication key and secret. You will be sent through Twitter to authenticate your own Twitter account as a first user and admin.
 
-That's it, you're done and can start adding pages.
+That's it, you're done and can start adding pages!
 
 Deploying to Heroku
 -------------------
